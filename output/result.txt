@@ -1,0 +1,21 @@
+-------------------
+Protein: 1i8l.pdb	qc: B	ic D
+W.T. interface:
+Res #   Interactions
+ARG29	17
+TYR31	28
+GLN33	8
+LYS36	18
+MET38	15
+MET43	7
+GLU81	4
+VAL83	12
+LEU85	9
+ALA91	5
+PHE92	14
+LYS93	4
+ARG94	18
+LEU97	6
+
+interface (solvent radius 4.4 | minimum interactions 1	):
+Res #   Interactions
