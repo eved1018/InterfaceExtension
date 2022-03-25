@@ -59,7 +59,7 @@ Add these flags to use Scrwl4 or qhull.
 
 ### Notes:
 * Intercaat may not understand pdbs with insertion codes use pdb-tools fixinsert function to refromat the pdb. (https://github.com/haddocking/pdb-tools)
-* for extion mutants argument(-m) please use upper case three letter amino acid name seperated by a comma without spaces.
+* for extended mutants argument(-m) please use upper case three letter amino acid name seperated by a comma without spaces.
 
 
 
