@@ -23,8 +23,8 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
                     mutant = runScrwl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
                     mutant, query_chain, partner_chain, mutposition, sr, qhull)
-                print("\n\n", key, wt_interactions,
-                      mutant_interactions, "\n\n")
+                # print("\n\n", key, wt_interactions,
+                #       mutant_interactions, "\n\n")
                 results[key] = results[key] + \
                     [f"{mutAA} {wt_interactions} {mutant_interactions}"]
                 if mutant_interactions and key not in extened_interface:
