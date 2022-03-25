@@ -18,10 +18,10 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
 ```
 2. Download Modeller: https://salilab.org/modeller/download_installation.html
     * for Conda enviroment:
-    ```sh 
+```sh 
         conda config --add channels salilab
         conda install modeller
-    ```
+```
 3. Download python dependencies (pyhull, scipy, numpy):
 ```sh
     pip install -r requirements.txt 
