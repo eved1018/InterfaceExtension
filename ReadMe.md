@@ -6,7 +6,7 @@
  
 ### Overview:
 
-This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacologically relevent residues at the perirephary of the strictly defined interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ASP and TRP by defualt) and finally assesing whether the mutant reaches the "wt interface" threshold.
+This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacologically relevent residues at the perirephary of the strictly defined interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ASP and TRP by default) and finally assesing whether the mutant reaches the "wt interface" threshold.
 
 
 ### Installation and Depndencies:
