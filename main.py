@@ -6,7 +6,7 @@ from scripts.intercaatInterface import intercaatRun, mutantIntercaatRun
 
 def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull):
     extended_interface = []
-    print(pdb, query_chain, partner_chain)
+    # print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
