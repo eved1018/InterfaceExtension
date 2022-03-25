@@ -47,7 +47,7 @@ python main.py
 * -m: Amino Acids used for extention (default TRP,ARG).
 * -r: Output file name. 
 <br/>
---- 
+---- 
 Add these flags to use Scrwl4 or qhull.
 
 * -s: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
