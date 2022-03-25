@@ -39,7 +39,7 @@ cd InterfaceExtention
 python main.py 
 ```
 ### Command Line Arguments:
-* -pdb: RCSB PDB id, if not provided you will be prompted to select one. If it is is in the `input` folder it will be used. Otherwise it will be downloaded from the RCSB.  
+* -pdb: RCSB PDB id, if not provided you will be prompted to select one. If it is is in the input/ folder it will be used. Otherwise it will be downloaded from the RCSB.  
 * -qc: Query chain to find extended positions on.
 * -ic: partner chain.
 * -sr: solvent radius for extention (default 4.4).
