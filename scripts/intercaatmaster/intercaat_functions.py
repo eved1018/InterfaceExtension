@@ -1,7 +1,7 @@
-#!/usr/bin/env python
 import numpy as np
 from configparser import ConfigParser
 from pathlib import Path
+from pyhull.voronoi import VoronoiTess
 
 def dist(x1, y1, z1, x2, y2, z2):
 	'''
@@ -53,11 +53,11 @@ def run_voro(points):
 	config = ConfigParser()
 	config.read('./intercaatmaster/intercaat_config.ini')
 	python_version = config.get('qvoronoi_path', 'run_python_version')
+
 	if python_version == 'no':
 		return voroC(points)
 	else:
 		return voroPython(points)
-
 
 def voroC(points):
 	'''
@@ -126,6 +126,29 @@ def voroC(points):
 		count1 += 1
 	return neighbors
 
+def voroPyhull(points):
+	points = [[float(i) for i in j] for j in points] 	
+	v = VoronoiTess(np.array(points))
+	contacts = v.ridges
+	contacts = [i for i in contacts]
+	contacts = np.array(contacts)
+	count1 = 0
+	count2 = 0
+	hold = []
+	neighbors = []
+	while count1 < len(points):
+		while count2 < len(contacts):
+			if contacts[count2,0] == count1:
+				hold.append(contacts[count2,1])
+			if contacts[count2,1] == count1:
+				hold.append(contacts[count2,0])
+			count2 += 1
+		hold = sorted(hold)
+		neighbors.append(hold)
+		hold = []
+		count2 = 0
+		count1 += 1
+	return neighbors
 
 def voroPython(points):
 	from scipy.spatial import Voronoi
@@ -137,7 +160,6 @@ def voroPython(points):
 	'''
 	v = Voronoi(np.array(points))
 	contacts = v.ridge_points
-
 	count1 = 0
 	count2 = 0
 	hold = []

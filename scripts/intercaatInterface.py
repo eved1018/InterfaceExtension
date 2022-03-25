@@ -1,11 +1,11 @@
-from scripts.intercaatmaster.intercaatWrapper import intercaat
+from .intercaatmaster.intercaatWrapper import intercaat
 import sys
 
 
-def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi):
+def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi, qhull):
     positions = {}
     intercaat_result = intercaat(
-        in_pdb, query_chain, partner_chain, fp="input/")
+        in_pdb, query_chain, partner_chain, fp="input/", qhull = qhull)
     intercaat_result_changed = intercaat(
         in_pdb, query_chain, partner_chain, sr=sr, mi=mi, fp="input/")
     if not intercaat_result:
@@ -21,8 +21,8 @@ def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi):
     return intercaat_result, intercaat_result_changed, positions
 
 
-def mutantIntercaatRun(mutant_pdb, query_chain, partner_chain, mut_position, sr):
-    intercaat_result = intercaat(mutant_pdb, query_chain, partner_chain)
+def mutantIntercaatRun(mutant_pdb, query_chain, partner_chain, mut_position, sr, qhull):
+    intercaat_result = intercaat(mutant_pdb, query_chain, partner_chain, qhull)
     if mut_position in intercaat_result:
         return True
     else:

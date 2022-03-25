@@ -1,4 +1,3 @@
-import sys
 import os
 from modeller import *
 from modeller.optimizers import MolecularDynamics, ConjugateGradients

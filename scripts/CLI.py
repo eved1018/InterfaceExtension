@@ -10,33 +10,49 @@ def CLI():
     # query_chain = "B"
     files = [i for i in os.listdir("input/") if i.endswith(".pdb")]
     parser = argparse.ArgumentParser()
-    parser.add_argument('-pdb', required=True,
-                        help="please choose an input file from {files} or add to input folder")
-    parser.add_argument('-qc', '--query_chain',
-                        help="please choose a query chain", default=None)
+    parser.add_argument('-pdb', required=False,
+                        help=f"please choose an input file from {files} or add to input folder", default=None)
+    parser.add_argument('-qc', '--query_chain', help="please choose a query chain", default=None)
     parser.add_argument('-ic', '--interacting_chain',
                         help="please choose the interacting chain", default=None)
     parser.add_argument('-sr', '--solvent_radius',
-                        help="please choose the solvent radius extention (defualt 2.4)", default=4.4)
+                        help="please choose the solvent radius extention (defualt 4.4)", default=4.4)
     parser.add_argument('-r', '--result_file',
                         help="result file", default="result.txt")
     parser.add_argument(
-        '-mi', '--min_ints', help="please choose the minimum interaction (defualt 4)", default=1)
+        '-mi', '--min_ints', help="please choose the minimum interaction (defualt 1)", default=1)
     parser.add_argument(
-        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", default=True)
+        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", action = 'store_true', default=False)
     parser.add_argument(
         '-m', '--mutants', help="mutants to change to: ex TRP,ARG", default="TRP,ARG")
+    parser.add_argument(
+        '-qh', '--qhull', help="use c++ qhull", action = 'store_true', default=False)
     args = parser.parse_args()
     pdb = args.pdb
-    pdb_file = pdb + ".pdb"
     partner_chain = args.interacting_chain
     query_chain = args.query_chain
     sr = args.solvent_radius
     result_file = args.result_file
     mi = args.min_ints
     scrwl = args.scrwl
+    qhull  = args.qhull
     mutants = args.mutants
     mutants = mutants.split(",")
+    if mi > 4:
+        print("Error please choose `mi` less than 4")
+        sys.exit()
+    pdb, pdb_file = pdbManager(pdb, files)
+    if query_chain is None or partner_chain is None:
+        query_chain, partner_chain = getChains(pdb)
+    os.makedirs("output/mutants/", exist_ok=True)
+    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull
+
+
+def pdbManager(pdb, files):
+    if pdb is None:
+        pdb = input("Please input a pdb id (ex. 1i8l): ")
+        pdb = pdb.lower()
+    pdb_file = pdb + ".pdb" 
     if pdb_file not in files:
         download = input(f"Download {pdb} from the RCSB? [y,n]: ")
         if download == "y":
@@ -44,11 +60,8 @@ def CLI():
         else:
             print(f"{pdb} not downloaded please add {pdb} to input folder")
             sys.exit()
-    if query_chain is None or partner_chain is None:
-        query_chain, partner_chain = getChains(pdb)
-    os.makedirs("output/mutants/", exist_ok=True)
-    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants
-
+    return pdb, pdb_file
+        
 
 def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/"):
     """

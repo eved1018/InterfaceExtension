@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import sys
 import argparse
 import numpy as np 
@@ -66,7 +65,7 @@ if arg8 != []:
 try:
     pdb = icaat.parse(args.PDBFileName, (arg2 + arg3 + arg8), arg9)
 except FileNotFoundError:
-    sys.exit(f'{pdb_filename} was not found')
+    sys.exit(f'{args.PDBFileName} was not found')
 
 coordinates = []
 match = []

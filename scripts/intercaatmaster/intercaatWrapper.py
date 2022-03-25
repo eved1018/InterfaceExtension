@@ -1,8 +1,7 @@
-import intercaatmaster.intercaat_functions as icaat
+import scripts.intercaatmaster.intercaat_functions as icaat
 import sys
-import pandas as pd
 
-def intercaat(pdb: str, qc: str, ic: str, mi: int = 4,di: str = "yes",cc: str = "yes", sr: float = 1.4, vi = [], fp: str = "./"):
+def intercaat(pdb: str, qc: str, ic: str, mi: int = 4,di: str = "yes",cc: str = "yes", sr: float = 1.4, vi = [], fp: str = "./", qhull = False):
     arg1 = pdb
     arg2 = qc.split(',')
     arg3 = ic.split(',')
@@ -26,8 +25,10 @@ def intercaat(pdb: str, qc: str, ic: str, mi: int = 4,di: str = "yes",cc: str = 
         coordinates.append([line[8], line[9], line[10]])
 
     # Creates 3D voronoi diagram and returns indices of neighboring atoms
-    # contacts = icaat.run_voro(coordinates)
-    contacts = icaat.voroC(coordinates)
+    if qhull:
+        contacts = icaat.voroC(coordinates)
+    else:
+        contacts = icaat.voroPyhull(coordinates)
     # Creates a list (pdbAtomClass) that contains classes for all atoms analayzed
     pdbAtomClass = icaat.appendAtomClasses(pdb)
 
@@ -76,7 +77,7 @@ def intercaat(pdb: str, qc: str, ic: str, mi: int = 4,di: str = "yes",cc: str = 
     return to_dict(out2, out3)
 
 
-def tooFile(filename, newMatch,newInteractionRes,newInteractions):
+def tooFile(filename, newMatch, newInteractionRes,newInteractions):
     with open(filename, "w+") as f:
         f.write("Res #   Interactions\n")
         for res, ints in zip(newInteractionRes, newInteractions):
@@ -86,13 +87,6 @@ def tooFile(filename, newMatch,newInteractionRes,newInteractions):
             f.write(i+"\n")
     return
 
-def to_csv(newInteractionRes,newInteraction, filename = None):
-    df = pd.DataFrame()
-    df[["residue","resname","position", "interactions"]] = [[f"{i}{l[0]}",i,l[0],l[1]] for i, l in zip(newInteractionRes, newInteraction)]
-    if filename:
-        df.to_csv(filename)
-    return df
 
-def to_dict(newInteractionRes,newInteraction):
+def to_dict(newInteractionRes, newInteraction):
     return {f"{i}{l[0]}": [i,l[0],l[1]] for i, l in zip(newInteractionRes, newInteraction)}
-
