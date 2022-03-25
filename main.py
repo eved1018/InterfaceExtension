@@ -37,13 +37,13 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
 def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extened_interface, results, positions):
     with open(f"output/{result_file}", "a+") as outfile:
         outfile.write("-------------------\n")
-        outfile.write(f"Protein: {pdb}\tqc: {query_chain}\tic {partner_chain}")
+        outfile.write(f"Protein: {pdb} qc: {query_chain} ic {partner_chain}")
         outfile.write("\nW.T. interface:\n")
         outfile.write("Res #   Interactions\n")
         for i in intercaat_result:
             outfile.write(f"{i}\t{intercaat_result[i][2]}\n")
         outfile.write(
-            f"\ninterface (solvent radius {sr} | minimum interactions {mi}\t):\n")
+            f"\nInterface (solvent radius {sr} | minimum interactions {mi}):\n")
         outfile.write("Res #   Interactions\n")
         for i in intercaat_result_changed:
             if i in positions:
@@ -52,7 +52,7 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
                 outfile.write(f" {i}\t{intercaat_result_changed[i][2]}\n")
         outfile.write("\npotential extened interface positions: ")
         outfile.write(" ".join(extened_interface))
-        outfile.write("\n all results:\n")
+        outfile.write("\nMutation results:\n")
         for i in results:
             j = " ".join(results[i])
             outfile.write(f"{i} {j}\n")
