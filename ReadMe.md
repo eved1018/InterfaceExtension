@@ -27,6 +27,7 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
     pip install -r requirements.txt 
 ```
 4. Download SCRWL4 (optional): http://dunbrack.fccc.edu/lab/scwrl
+5. Download qhull (optional): http://www.qhull.org/
 
 
 ### Usage:
