@@ -49,6 +49,7 @@ python main.py
 <br/>
 --- 
 Add these flags to use Scrwl4 or qhull.
+
 * -s: Use scrwl4 to remodel sidechain (defualt no sidechain remodeling).
 * -qh: Use c++ qhull (defualt pyhull). 
 
