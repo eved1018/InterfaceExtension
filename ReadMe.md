@@ -9,7 +9,7 @@
 This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacologically relevent residues at the perirephary of the strictly defined interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ASP and TRP by default) and finally assesing whether the mutant reaches the "wt interface" threshold.
 
 
-### Installation and Depndencies:
+### Installation and Dependencies:
 * Requires python 3.6 or later. Tested on python 3.9
 * Requires Anocanda to install Modeller easily. I recommend MiniConda. https://docs.conda.io/en/latest/miniconda.html
 1. Clone repo:
