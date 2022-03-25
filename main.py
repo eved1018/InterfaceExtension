@@ -31,7 +31,7 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
                     extened_interface.append(key)
     outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
                  intercaat_result_changed, extened_interface, results, positions)
-    return
+    return extened_interface
 
 
 def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extened_interface, results, positions):
@@ -61,4 +61,5 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
 
 if __name__ == '__main__':
     pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants = CLI()
-    main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants)
+    extened_interface = main(
+        pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants)
