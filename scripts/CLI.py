@@ -3,20 +3,29 @@ import os
 import argparse
 import sys
 
+
 def CLI():
     # pdb = "6waq.pdb"
     # partner_chain = "A"
     # query_chain = "B"
     files = [i for i in os.listdir("input/") if i.endswith(".pdb")]
     parser = argparse.ArgumentParser()
-    parser.add_argument('-pdb',required =True, help= f"please choose an input file from {files} or add to input folder")
-    parser.add_argument('-qc'  , '--query_chain', help= f"please choose a query chain", default = None)
-    parser.add_argument('-ic' ,'--interacting_chain', help= f"please choose the interacting chain", default = None)
-    parser.add_argument('-sr' ,'--solvent_radius', help= f"please choose the solvent radius extention (defualt 2.4)", default = 4.4)
-    parser.add_argument('-r' ,'--result_file', help= f"result file", default = "result.txt")
-    parser.add_argument('-mi' ,'--min_ints', help= f"please choose the minimum interaction (defualt 4)", default = 1)
-    parser.add_argument('-s' ,'--scrwl', help= f"use Scrwl4 to remodel sidechains", default = True)
-    parser.add_argument('-m' ,'--mutants', help= f"mutants to change to: ex TRP,ARG", default = "TRP,ARG")
+    parser.add_argument('-pdb', required=True,
+                        help="please choose an input file from {files} or add to input folder")
+    parser.add_argument('-qc', '--query_chain',
+                        help="please choose a query chain", default=None)
+    parser.add_argument('-ic', '--interacting_chain',
+                        help="please choose the interacting chain", default=None)
+    parser.add_argument('-sr', '--solvent_radius',
+                        help="please choose the solvent radius extention (defualt 2.4)", default=4.4)
+    parser.add_argument('-r', '--result_file',
+                        help="result file", default="result.txt")
+    parser.add_argument(
+        '-mi', '--min_ints', help="please choose the minimum interaction (defualt 4)", default=1)
+    parser.add_argument(
+        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", default=True)
+    parser.add_argument(
+        '-m', '--mutants', help="mutants to change to: ex TRP,ARG", default="TRP,ARG")
     args = parser.parse_args()
     pdb = args.pdb
     pdb_file = pdb + ".pdb"
@@ -37,8 +46,9 @@ def CLI():
             sys.exit()
     if query_chain is None or partner_chain is None:
         query_chain, partner_chain = getChains(pdb)
-    os.makedirs("output/mutants/", exist_ok = True)
+    os.makedirs("output/mutants/", exist_ok=True)
     return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants
+
 
 def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/"):
     """
@@ -58,6 +68,7 @@ def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/
     except Exception as err:
         print(str(err), file=sys.stderr)
         return None
+
 
 def getChains(pdb):
     chains = set()

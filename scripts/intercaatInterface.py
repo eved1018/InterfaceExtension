@@ -1,9 +1,13 @@
 from scripts.intercaatmaster.intercaatWrapper import intercaat
+import sys
+
 
 def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi):
     positions = {}
-    intercaat_result = intercaat(in_pdb, query_chain, partner_chain,fp = "input/" )
-    intercaat_result_changed = intercaat(in_pdb, query_chain, partner_chain,sr = sr, mi = mi, fp = "input/" )
+    intercaat_result = intercaat(
+        in_pdb, query_chain, partner_chain, fp="input/")
+    intercaat_result_changed = intercaat(
+        in_pdb, query_chain, partner_chain, sr=sr, mi=mi, fp="input/")
     if not intercaat_result:
         print("Error: it is likley the two chains selected to not interact")
         sys.exit()
@@ -16,11 +20,10 @@ def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi):
 
     return intercaat_result, intercaat_result_changed, positions
 
+
 def mutantIntercaatRun(mutant_pdb, query_chain, partner_chain, mut_position, sr):
     intercaat_result = intercaat(mutant_pdb, query_chain, partner_chain)
     if mut_position in intercaat_result:
         return True
     else:
         return False
-
-
