@@ -5,7 +5,7 @@ from scripts.intercaatInterface import intercaatRun, mutantIntercaatRun
 
 
 def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull):
-    extened_interface = []
+    extended_interface = []
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
@@ -27,14 +27,15 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
                 #       mutant_interactions, "\n\n")
                 results[key] = results[key] + \
                     [f"{mutAA} {wt_interactions} {mutant_interactions}"]
-                if mutant_interactions and key not in extened_interface:
-                    extened_interface.append(key)
+                if mutant_interactions and key not in extended_interface:
+                    extended_interface.append(key)
     outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
-                 intercaat_result_changed, extened_interface, results, positions)
-    return extened_interface
+                 intercaat_result_changed, extended_interface, results, positions)
+    print("extended interface positions: ", extended_interface)
+    return extended_interface
 
 
-def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extened_interface, results, positions):
+def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extended_interface, results, positions):
     with open(f"output/{result_file}", "a+") as outfile:
         outfile.write("-------------------\n")
         outfile.write(f"Protein: {pdb} qc: {query_chain} ic {partner_chain}")
@@ -51,7 +52,7 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
             else:
                 outfile.write(f" {i}\t{intercaat_result_changed[i][2]}\n")
         outfile.write("\npotential extened interface positions: ")
-        outfile.write(" ".join(extened_interface))
+        outfile.write(" ".join(extended_interface))
         outfile.write("\nMutation results:\n")
         for i in results:
             j = " ".join(results[i])
@@ -61,5 +62,5 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
 
 if __name__ == '__main__':
     pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants = CLI()
-    extened_interface = main(
+    extended_interface = main(
         pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants)
