@@ -42,16 +42,16 @@ python main.py
 * -pdb: RCSB PDB id, if not provided you will be prompted to select one. If it is is in the `input` folder it will be used. Otherwise it will be downloaded from the RCSB.  
 * -qc: Query chain to find extended positions on.
 * -ic: partner chain.
-* -sr: solvent radius for extention (defualt 4.4).
-* -mi: Interaction cutoff for extention (defualt 1).
-* -m: Amino Acids used for extention (defualt TRP,ARG).
+* -sr: solvent radius for extention (default 4.4).
+* -mi: Interaction cutoff for extention (default 1).
+* -m: Amino Acids used for extention (default TRP,ARG).
 * -r: Output file name. 
 <br/>
 --- 
 Add these flags to use Scrwl4 or qhull.
 
-* -s: Use scrwl4 to remodel sidechain (defualt no sidechain remodeling).
-* -qh: Use c++ qhull (defualt pyhull). 
+* -s: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
+* -qh: Use c++ qhull (default pyhull). 
 
 ### Output:
 ![output](Media/results.png)
