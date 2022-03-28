@@ -11,13 +11,13 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
-    jobs = [(key, mutAA, positions, scrwl, qhull, sr, query_chain, partner_chain) for key in positions for mutAA in mutants if key[:3] != mutAA]    
+    jobs = [(key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain) for key in positions for mutAA in mutants if key[:3] != mutAA]    
     with ProcessPoolExecutor(max_workers=cores) as exe:
         return_vals = exe.map(parellelRun, jobs)
         for return_val in return_vals:
             rkey, is_exteneded, result = return_val
             results[rkey] = results[rkey] + result
-            if is_exteneded:
+            if is_exteneded and rkey not in extended_interface:
                 extended_interface.append(rkey)
     outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
                  intercaat_result_changed, extended_interface, results, positions)
@@ -55,7 +55,7 @@ def singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
 
 
 def parellelRun(args):
-    key, mutAA, positions, scrwl, qhull, sr, query_chain, partner_chain = args
+    key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain = args
     wt_interactions = int(positions[key][1])
     respos = str(positions[key][0])
     mutposition = mutAA + respos
@@ -64,8 +64,7 @@ def parellelRun(args):
     if scrwl:
         mutant = runScrwl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
-    is_exteneded = True if mutant_interactions and key not in extended_interface else False
-    return key, is_exteneded, [f"{mutAA} {wt_interactions} {mutant_interactions}"]
+    return key, mutant_interactions, [f"{mutAA} {wt_interactions} {mutant_interactions}"]
 
 
 def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extended_interface, results, positions):

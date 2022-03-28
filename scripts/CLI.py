@@ -2,7 +2,7 @@ import urllib.request
 import os
 import argparse
 import sys
-
+from scripts.pdb_fixinsert import fixInsert
 
 def CLI():
     # pdb = "6waq.pdb"
@@ -16,7 +16,7 @@ def CLI():
     parser.add_argument('-ic', '--interacting_chain',
                         help="please choose the interacting chain", default=None)
     parser.add_argument('-sr', '--solvent_radius',
-                        help="please choose the solvent radius extention (defualt 3.4)", default=4.4)
+                        help="please choose the solvent radius extention (defualt 2.4)", default=2.4)
     parser.add_argument('-r', '--result_file',
                         help="result file", default="result.txt")
     parser.add_argument(
@@ -38,7 +38,7 @@ def CLI():
     mi = args.min_ints
     scrwl = args.scrwl
     qhull = args.qhull
-    cores = args.cores
+    cores = int(args.cores)
     mutants = args.mutants
     mutants = mutants.split(",")
     if mi > 4:
@@ -46,7 +46,8 @@ def CLI():
         sys.exit()
     pdb, pdb_file = pdbManager(pdb, files)
     if query_chain is None or partner_chain is None:
-        query_chain, partner_chain = getChains(pdb)
+        query_chain, partner_chain, pdb_file = getChains(pdb)
+    
     os.makedirs("output/mutants/", exist_ok=True)
     return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores
 
@@ -88,10 +89,13 @@ def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/
 
 def getChains(pdb):
     chains = set()
+    has_icode = False
     with open(f"input/{pdb}.pdb", "r") as pdb_fh:
         for line in pdb_fh:
             if line.startswith("ATOM"):
                 chains.add(line[21])
+                if line[26] != ' ':
+                    has_icode = True
     qc = input(f"Please select query [{chains}]: ")
     if qc not in chains:
         print("chain not found")
@@ -102,4 +106,7 @@ def getChains(pdb):
     if ic not in chains:
         print("chain not found")
         sys.exit()
-    return qc, ic
+    if has_icode == True:
+        print("Fixing insertion codes:")
+        pdb_file = fixInsert(f"{pdb}.pdb")
+    return qc, ic, pdb_file
