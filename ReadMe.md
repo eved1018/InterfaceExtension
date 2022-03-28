@@ -8,7 +8,7 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
 
 
 ### Installation and Dependencies:
-* Requires python 3.6 or later. Tested on python 3.9
+* Requires python 3.6 or later. Tested on python 3.9. 
 * Requires Anocanda to install Modeller easily. I recommend MiniConda. https://docs.conda.io/en/latest/miniconda.html
 1. Clone repo:
 ```sh
