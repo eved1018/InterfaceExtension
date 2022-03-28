@@ -13,6 +13,7 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
         pdb, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
     jobs = [(key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain) for key in positions for mutAA in mutants if key[:3] != mutAA]    
+    print(f"{len(jobs)} jobs")
     with ProcessPoolExecutor(max_workers=cores) as exe:
         return_vals = exe.map(parellelRun, jobs)
         for return_val in return_vals:
@@ -45,8 +46,7 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                     mutant = runScrwl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
                     mutant, query_chain, partner_chain, mutposition, sr, qhull)
-                results[key] = results[key] + \
-                    [f"{mutAA} {wt_interactions} {mutant_interactions}"]
+                results[key] = results[key] + [f"{mutAA} {mutant_interactions}"]
                 if mutant_interactions and key not in extended_interface:
                     extended_interface.append(key)
     outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
@@ -65,7 +65,7 @@ def parellelRun(args):
     if scrwl:
         mutant = runScrwl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
-    return key, mutant_interactions, [f"{mutAA} {wt_interactions} {mutant_interactions}"]
+    return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
 
 def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extended_interface, results, positions):
@@ -87,10 +87,12 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
         outfile.write("\npotential extened interface positions: ")
         outfile.write(" ".join(extended_interface))
         outfile.write("\nMutation results:\n")
+        outfile.write("Original    Mutant    Extened to Interface")
         for i in results:
-            j = " ".join(results[i])
+            j = "    ".join(results[i])
             outfile.write(f"{i} {j}\n")
     shutil.make_archive(f"output/mutants_{pdb}" , 'zip', "output/mutants")
+    shutil.rmtree("output/mutants")
     return
 
 
@@ -99,5 +101,5 @@ if __name__ == '__main__':
     if cores == 0:
         extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants)
     else:
-        print(f"using {cores} number of cores:")
+        print(f"using {cores} cores:")
         extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores)

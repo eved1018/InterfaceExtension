@@ -62,7 +62,7 @@ Add these flags to use Scrwl4 or qhull.
 ### Notes:
 * Intercaat may not understand pdbs with insertion codes so pdb-tools fixinsert function is run to reformat the pdb. (https://github.com/haddocking/pdb-tools).
 * for extended mutants argument(-m) please use upper case three letter amino acid name seperated by a comma without spaces.
-* if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull dowloaded it and place the 
+* if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull dowloaded it (http://www.qhull.org/),  update the content intercaat_configs.ini file in 'scripts/intercaatmaster' and use the -qh flag in the command line.
 
 
 Written by Evan Edelstein
