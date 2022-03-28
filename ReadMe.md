@@ -1,8 +1,6 @@
-### Interface Extention
-<p align="center">
-  <img src="Media/ctla4cd80.png" height="200"/>
-</p>
-<br>
+### Interface Extention:
+
+![output](Media/ctla4cd80.png)
  
 ### Overview:
 
@@ -66,22 +64,10 @@ Add these flags to use Scrwl4 or qhull.
 * if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull dowloaded it (http://www.qhull.org/),  update the content intercaat_configs.ini file in 'scripts/intercaatmaster' and use the -qh flag in the command line.
 
 
-Written by Evan Edelstein
+Written by Evan Edelstein 
 <br />
 Please report any questions or complaints to steve.grudman@einsteinmed.org
 
 <br />
 <br />
 <div id="Footer"></div>
-
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-url]: Media/license.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/evan-edelstein/
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[product-screenshot]: Media/ctla4cd80.png
