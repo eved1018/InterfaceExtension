@@ -86,10 +86,9 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
                 outfile.write(f" {i}\t{intercaat_result_changed[i][2]}\n")
         outfile.write("\npotential extened interface positions: ")
         outfile.write(" ".join(extended_interface))
-        outfile.write("\nMutation results:\n")
-        outfile.write("Original    Mutant    Extened to Interface")
+        outfile.write("\nMutation results: (True if made contact after mutation)\n")
         for i in results:
-            j = "    ".join(results[i])
+            j = "\t".join(results[i])
             outfile.write(f"{i} {j}\n")
     shutil.make_archive(f"output/mutants_{pdb}" , 'zip', "output/mutants")
     shutil.rmtree("output/mutants")
