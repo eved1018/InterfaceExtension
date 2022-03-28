@@ -46,8 +46,9 @@ def CLI():
         sys.exit()
     pdb, pdb_file = pdbManager(pdb, files)
     if query_chain is None or partner_chain is None:
-        query_chain, partner_chain, pdb_file = getChains(pdb)
-    
+        query_chain, partner_chain, pdb_file = getChains(pdb, pdb_file)
+    else:
+        pdb_file = fixInsert(pdb_file)
     os.makedirs("output/mutants/", exist_ok=True)
     return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores
 
@@ -87,10 +88,10 @@ def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/
         return None
 
 
-def getChains(pdb):
+def getChains(pdb_file):
     chains = set()
     has_icode = False
-    with open(f"input/{pdb}.pdb", "r") as pdb_fh:
+    with open(f"input/{pdb_file}", "r") as pdb_fh:
         for line in pdb_fh:
             if line.startswith("ATOM"):
                 chains.add(line[21])
@@ -106,7 +107,6 @@ def getChains(pdb):
     if ic not in chains:
         print("chain not found")
         sys.exit()
-    if has_icode == True:
-        print("Fixing insertion codes:")
-        pdb_file = fixInsert(f"{pdb}.pdb")
-    return qc, ic, pdb_file
+    if has_icode:
+        pdb_file = fixInsert(pdb_file)
+    return qc, ic ,pdb_file

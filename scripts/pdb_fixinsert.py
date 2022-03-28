@@ -110,18 +110,27 @@ def run(fhandle, option_list):
 
 
 def fixInsert(pdb_file):
-    # Check Input
-    pdbfh = open(f"../input/{pdb_file}", 'r')
-    option_list = []
-    # Do the job
-    new_pdb = run(pdbfh, option_list)
+    has_icode = False
+    with open(f"../input/{pdb_file}", "r") as pdb_fh:
+        for line in pdb_fh:
+            if line.startswith("ATOM"):
+                if line[26] != ' ':
+                    has_icode = True
 
-    with open(f"../input/fixed_{pdb_file}", "w+") as _file:
-        for line in new_pdb:
-            _file.write(line)
-    pdbfh.close()
-    return f"fixed_{pdb_file}"
+    if has_icode:
+        # Check Input
+        pdbfh = open(f"../input/{pdb_file}", 'r')
+        option_list = []
+        # Do the job
+        new_pdb = run(pdbfh, option_list)
+
+        with open(f"../input/fixed_{pdb_file}", "w+") as _file:
+            for line in new_pdb:
+                _file.write(line)
+        pdbfh.close()
+        return f"fixed_{pdb_file}"
+    else:
+        return pdb_file
 
 
-if __name__ == '__main__':
-    fixInsert("6waq.pdb")
+
