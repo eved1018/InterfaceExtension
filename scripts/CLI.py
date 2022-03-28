@@ -22,11 +22,13 @@ def CLI():
     parser.add_argument(
         '-mi', '--min_ints', help="please choose the minimum interaction (defualt 1)", default=1)
     parser.add_argument(
-        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", action = 'store_true', default=False)
+        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", action= 'store_true', default=False)
     parser.add_argument(
         '-m', '--mutants', help="mutants to change to: ex TRP,ARG", default="TRP,ARG")
     parser.add_argument(
-        '-qh', '--qhull', help="use c++ qhull", action = 'store_true', default=False)
+        '-qh', '--qhull', help="use c++ qhull", action= 'store_true', default=False)
+    parser.add_argument(
+        '-c', '--cores', help="number of pareller jobs to run at once", default=0)
     args = parser.parse_args()
     pdb = args.pdb
     partner_chain = args.interacting_chain
@@ -35,7 +37,8 @@ def CLI():
     result_file = args.result_file
     mi = args.min_ints
     scrwl = args.scrwl
-    qhull  = args.qhull
+    qhull = args.qhull
+    cores = args.cores
     mutants = args.mutants
     mutants = mutants.split(",")
     if mi > 4:
@@ -45,7 +48,7 @@ def CLI():
     if query_chain is None or partner_chain is None:
         query_chain, partner_chain = getChains(pdb)
     os.makedirs("output/mutants/", exist_ok=True)
-    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull
+    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores
 
 
 def pdbManager(pdb, files):
