@@ -46,7 +46,7 @@ def CLI():
         sys.exit()
     pdb, pdb_file = pdbManager(pdb, files)
     if query_chain is None or partner_chain is None:
-        query_chain, partner_chain, pdb_file = getChains(pdb, pdb_file)
+        query_chain, partner_chain, pdb_file = getChains(pdb_file)
     else:
         pdb_file = fixInsert(pdb_file)
     os.makedirs("output/mutants/", exist_ok=True)

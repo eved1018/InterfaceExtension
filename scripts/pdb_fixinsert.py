@@ -108,10 +108,9 @@ def run(fhandle, option_list):
         yield line
 
 
-
 def fixInsert(pdb_file):
     has_icode = False
-    with open(f"../input/{pdb_file}", "r") as pdb_fh:
+    with open(f"input/{pdb_file}", "r") as pdb_fh:
         for line in pdb_fh:
             if line.startswith("ATOM"):
                 if line[26] != ' ':
@@ -119,12 +118,12 @@ def fixInsert(pdb_file):
 
     if has_icode:
         # Check Input
-        pdbfh = open(f"../input/{pdb_file}", 'r')
+        pdbfh = open(f"input/{pdb_file}", 'r')
         option_list = []
         # Do the job
         new_pdb = run(pdbfh, option_list)
 
-        with open(f"../input/fixed_{pdb_file}", "w+") as _file:
+        with open(f"input/fixed_{pdb_file}", "w+") as _file:
             for line in new_pdb:
                 _file.write(line)
         pdbfh.close()

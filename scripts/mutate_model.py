@@ -63,6 +63,7 @@ def mutateModel(modelname, respos, restyp, chain,filename, folder):
 
     modelname = folder+modelname
     # log.verbose()
+    log.none()
 
 # Set a different value for rand_seed to get a different final model
     env = Environ(rand_seed=-49837)

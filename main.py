@@ -3,6 +3,7 @@ from scripts.CLI import CLI
 from scripts.Scrwl import runScrwl4
 from scripts.intercaatInterface import intercaatRun, mutantIntercaatRun
 from concurrent.futures import ProcessPoolExecutor
+import shutil
 
 
 def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores):
@@ -25,7 +26,7 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
     return extended_interface
 
 
-def singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants):
+def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants):
     extended_interface = []
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
@@ -89,12 +90,14 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
         for i in results:
             j = " ".join(results[i])
             outfile.write(f"{i} {j}\n")
+    shutil.make_archive(f"output/mutants_{pdb}" , 'zip', "output/mutants")
     return
 
 
 if __name__ == '__main__':
     pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores = CLI()
     if cores == 0:
-        extended_interface = singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants)
+        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants)
     else:
+        print(f"using {cores} number of cores:")
         extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores)
