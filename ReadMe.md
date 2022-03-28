@@ -45,7 +45,7 @@ python main.py
 * `-mi`: Interaction cutoff for extention (default 1).
 * `-m:` Amino Acids used for extention (default TRP,ARG).
 * `-r:` Output file name. 
-* `-c:` Number of cores to use in parellel (default 0 ie. single threaded)
+* `-c:` Number of cores to use in parallel (default 0 ie. single threaded)
 <br/>
 ---
 <br/>
