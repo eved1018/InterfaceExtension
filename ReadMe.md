@@ -55,6 +55,7 @@ python main.py
 * `-r:` Output file name. 
 * `-c:` Number of cores to use in parallel (default 0 ie. single threaded)
 <br />
+
 Add these flags to use Scrwl4 or qhull.
 * `-s`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
 * `-qh`: Use c++ qhull (default pyhull). 
