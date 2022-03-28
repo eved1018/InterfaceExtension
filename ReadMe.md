@@ -1,10 +1,10 @@
-### Interface Extention:
+### Interface Extension:
 
 ![output](Media/ctla4cd80.png)
  
 ### Overview:
 
-This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacologically relevent residues at the perirephary of the strictly defined protein interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ARG and TRP by default) and finally assesing whether the mutant reaches the "wt interface" threshold.
+This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacological relevant residues at the periphery of the strictly defined protein interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ARG and TRP by default) and finally assessing whether the mutant reaches the "wt interface" threshold.
 
 
 ### Installation and Dependencies:
@@ -31,7 +31,7 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
 ### Usage:
 1. Move to repo:
 ```sh
-cd InterfaceExtention
+cd InterfaceExtension
 ```
 2. Run code:
 ```sh
@@ -41,9 +41,9 @@ python main.py
 * `-pdb`: RCSB PDB id, if not provided you will be prompted to select one. If it is is in the input/ folder it will be used. Otherwise it will be downloaded from the RCSB.
 * `-qc`: Query chain to find extended positions on.
 * `-ic`: partner chain.
-* `-sr`: solvent radius for extention (default 4.4).
-* `-mi`: Interaction cutoff for extention (default 1).
-* `-m:` Amino Acids used for extention (default TRP,ARG).
+* `-sr`: solvent radius for extension (default 4.4).
+* `-mi`: Interaction cutoff for extension (default 1).
+* `-m:` Amino Acids used for extension (default TRP,ARG).
 * `-r:` Output file name. 
 * `-c:` Number of cores to use in parallel (default 0 ie. single threaded)
 <br/>
@@ -60,8 +60,8 @@ Add these flags to use Scrwl4 or qhull.
 
 ### Notes:
 * Intercaat may not understand pdbs with insertion codes so pdb-tools fixinsert function is run to reformat the pdb. (https://github.com/haddocking/pdb-tools).
-* for extended mutants argument(-m) please use upper case three letter amino acid name seperated by a comma without spaces.
-* if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull dowloaded it (http://www.qhull.org/),  update the content intercaat_configs.ini file in 'scripts/intercaatmaster' and use the -qh flag in the command line.
+* for extended mutants argument(-m) please use upper case three letter amino acid name separated by a comma without spaces.
+* if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull downloaded it (http://www.qhull.org/),  update the content intercaat_configs.ini file in 'scripts/intercaatmaster' and use the -qh flag in the command line.
 
 
 Written by Evan Edelstein 
