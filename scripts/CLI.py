@@ -16,7 +16,7 @@ def CLI():
     parser.add_argument('-ic', '--interacting_chain',
                         help="please choose the interacting chain", default=None)
     parser.add_argument('-sr', '--solvent_radius',
-                        help="please choose the solvent radius extention (defualt 4.4)", default=4.4)
+                        help="please choose the solvent radius extention (defualt 3.4)", default=4.4)
     parser.add_argument('-r', '--result_file',
                         help="result file", default="result.txt")
     parser.add_argument(

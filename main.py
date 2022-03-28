@@ -25,7 +25,7 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
     return extended_interface
 
 
-def singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull):
+def singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, mutants):
     extended_interface = []
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
@@ -44,8 +44,6 @@ def singelthreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                     mutant = runScrwl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
                     mutant, query_chain, partner_chain, mutposition, sr, qhull)
-                # print("\n\n", key, wt_interactions,
-                #       mutant_interactions, "\n\n")
                 results[key] = results[key] + \
                     [f"{mutAA} {wt_interactions} {mutant_interactions}"]
                 if mutant_interactions and key not in extended_interface:
@@ -65,7 +63,7 @@ def parellelRun(args):
     mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
     if scrwl:
         mutant = runScrwl4(mutant)
-    mutant_interactions = mutantIntercaatRun( mutant, query_chain, partner_chain, mutposition, sr, qhull)
+    mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
     is_exteneded = True if mutant_interactions and key not in extended_interface else False
     return key, is_exteneded, [f"{mutAA} {wt_interactions} {mutant_interactions}"]
 
