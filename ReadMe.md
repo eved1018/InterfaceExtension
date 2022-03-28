@@ -31,7 +31,7 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
 ### Usage:
 1. Move to repo:
 ```sh
-cd InterfaceExtension
+cd InterfaceExtension/
 ```
 2. Run code:
 ```sh
@@ -47,7 +47,7 @@ python main.py
 * `-r:` Output file name. 
 * `-c:` Number of cores to use in parallel (default 0 ie. single threaded)
 <br/>
----
+------
 <br/>
 Add these flags to use Scrwl4 or qhull.
 
