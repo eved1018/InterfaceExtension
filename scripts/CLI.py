@@ -45,6 +45,11 @@ def CLI():
     cores = int(args.cores)
     mutants = args.mutants
     mutants = mutants.split(",")
+    mutants = [i.upper() for i in mutants]
+    for i in mutants:
+        if len(i) != 3:
+            print("Error please use three letter amino acid code separated by a comma")
+            sys.exit()
     if mi > 4:
         print("Error please choose `mi` less than 4")
         sys.exit()
