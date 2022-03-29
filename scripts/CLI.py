@@ -23,7 +23,7 @@ def CLI():
     parser.add_argument(
         '-mi', '--min_ints', help="please choose the minimum interaction (defualt 1)", default=1)
     parser.add_argument(
-        '-s', '--scrwl', help="use Scrwl4 to remodel sidechains", action= 'store_true', default=False)
+        '-scrwl', '--scrwl', help="use Scrwl4 to remodel sidechains", action= 'store_true', default=False)
     parser.add_argument(
         '-m', '--mutants', help="mutants to change to: ex TRP,ARG", default="TRP,ARG")
     parser.add_argument(

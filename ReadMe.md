@@ -57,9 +57,9 @@ python main.py
 <br />
 
 Add these flags to use Scrwl4 or qhull.
-* `-s`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
+* `-scrwl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
 * `-qh`: Use c++ qhull (default pyhull). 
-* `-nomod`: Dont use modeller and instead just change the names of 
+* `-nomod`: (FOR TESTING ONLY) Dont use modeller and instead just change the names of the residue in the pdb. 
 ------
 
 ### Output:

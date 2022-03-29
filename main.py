@@ -45,8 +45,9 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                 if modeller:
                     mutant = mutateModel(pdb, respos, mutAA,
                                         query_chain, mutantfile, "input/")
+                    print(mutant)
                 else: 
-                    mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA)
+                    mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA, mutantfile)
                 if scrwl:
                     mutant = runScrwl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
@@ -69,7 +70,7 @@ def parellelRun(args):
     if modeller:
         mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
     else: 
-        mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA)
+        mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
     if scrwl:
         mutant = runScrwl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)

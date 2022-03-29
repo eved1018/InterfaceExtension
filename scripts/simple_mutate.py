@@ -5,11 +5,10 @@ import sys
 Adapted from https://github.com/haddocking/pdb-tools
 """
 
-def simple_mutate(pdb, qc, respos, wt_res,mutAA):
+def simple_mutate(pdb, qc, respos, wt_res,mutAA, mutantfile):
     mutated_structure = []
     mutposition = mutAA + str(respos)
-    mutantfile = "output/mutants/" + mutposition + ".pdb"
-    with open(pdb, "r") as _pdbfh:
+    with open(f"input/{pdb}", "r") as _pdbfh:
         for line in _pdbfh:
             if line[0:4] == 'ATOM' or line[0:6] == 'HETATM':
                 s_chain = line[21].strip()
@@ -29,5 +28,5 @@ def simple_mutate(pdb, qc, respos, wt_res,mutAA):
     with open(mutantfile, "w+") as _mutfile:
         for line in mutated_structure:
             _mutfile.write(line)
-    return 
+    return mutantfile
 
