@@ -72,6 +72,12 @@ Add these flags to use Scrwl4 or qhull.
 * for extended mutants argument(-m) please use upper case three letter amino acid name separated by a comma without spaces.
 * if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull downloaded it (http://www.qhull.org/), update the contents of intercaat_config.ini in 'scripts/intercaatmaster' folder  and use the -qh flag in the command line.
 
+### Solvent Radius Expansion:
+increasing -sr increases the Rw.
+
+![output](Media/sr.png)
+
+
 ------
 
 Written by Evan Edelstein 
