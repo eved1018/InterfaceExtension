@@ -57,7 +57,7 @@ python main.py
 <br />
 
 Add these flags to use Scrwl4 or qhull.
-* `-scrwl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
+* `-scwrl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
 * `-qh`: Use c++ qhull (default pyhull). 
 * `-nomod`: (FOR TESTING ONLY) Dont use modeller and instead just change the names of the residue in the pdb. 
 ------
@@ -71,6 +71,7 @@ Add these flags to use Scrwl4 or qhull.
 * Intercaat may not understand pdbs with insertion codes so pdb-tools fixinsert function is run to reformat the pdb. (https://github.com/haddocking/pdb-tools).
 * for extended mutants argument(-m) please use upper case three letter amino acid name separated by a comma without spaces.
 * if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull downloaded it (http://www.qhull.org/), update the contents of intercaat_config.ini in 'scripts/intercaatmaster' folder  and use the -qh flag in the command line.
+* if Scrwl4 isnt working delete the -p section of the alias. 
 
 ### Solvent Radius Expansion:
 Increasing -sr increases the Rw.

@@ -23,7 +23,7 @@ def CLI():
     parser.add_argument(
         '-mi', '--min_ints', help="please choose the minimum interaction (defualt 1)", default=1)
     parser.add_argument(
-        '-scrwl', '--scrwl', help="use Scrwl4 to remodel sidechains", action= 'store_true', default=False)
+        '-s', '--scwrl', help="use Scrwl4 to remodel sidechains", action= 'store_true', default=False)
     parser.add_argument(
         '-m', '--mutants', help="mutants to change to: ex TRP,ARG", default="TRP,ARG")
     parser.add_argument(
@@ -39,7 +39,7 @@ def CLI():
     sr = args.solvent_radius
     result_file = args.result_file
     mi = args.min_ints
-    scrwl = args.scrwl
+    scwrl = args.scwrl
     modeller = args.nomodeller
     qhull = args.qhull
     cores = int(args.cores)
@@ -55,7 +55,7 @@ def CLI():
         pdb_file = fixInsert(pdb_file)
     os.makedirs("output/", exist_ok=True)
     os.makedirs("output/mutants/", exist_ok=True)
-    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,modeller, cores
+    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scwrl, mutants, qhull,modeller, cores
 
 
 def pdbManager(pdb, files):

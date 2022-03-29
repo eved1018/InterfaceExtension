@@ -1,6 +1,6 @@
 from scripts.mutate_model import mutateModel
 from scripts.CLI import CLI
-from scripts.Scrwl import runScrwl4
+from scripts.Scwrl import runScrwl4
 from scripts.simple_mutate import simple_mutate
 from scripts.intercaatInterface import intercaatRun, mutantIntercaatRun
 from concurrent.futures import ProcessPoolExecutor
@@ -9,10 +9,8 @@ import shutil
 
 def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, modeller, cores):
     extended_interface = []
-    print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
-    print(intercaat_result)
     results = {key: [] for key in positions}
     jobs = [(key, mutAA, pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller) for key in positions for mutAA in mutants if key[:3] != mutAA]    
     print(f"{len(jobs)} jobs")
@@ -61,7 +59,6 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                 if modeller:
                     mutant = mutateModel(pdb, respos, mutAA,
                                         query_chain, mutantfile, "input/")
-                    print(mutant)
                 else: 
                     mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA, mutantfile)
                 if scrwl:
