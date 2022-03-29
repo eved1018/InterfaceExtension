@@ -29,7 +29,7 @@ def CLI():
     parser.add_argument(
         '-qh', '--qhull', help="use c++ qhull", action= 'store_true', default=False)
     parser.add_argument(
-        '-nomod', '--nomodeller', help="use modeller", action= 'store_false', default=True)
+        '-nomod', '--nomodeller', help="do not use modeller", action= 'store_true', default=False)
     parser.add_argument(
         '-c', '--cores', help="number of pareller jobs to run at once", default=0)
     args = parser.parse_args()
@@ -40,7 +40,7 @@ def CLI():
     result_file = args.result_file
     mi = args.min_ints
     scwrl = args.scwrl
-    modeller = args.nomodeller
+    nomod = args.nomodeller
     qhull = args.qhull
     cores = int(args.cores)
     mutants = args.mutants
@@ -60,7 +60,7 @@ def CLI():
         pdb_file = fixInsert(pdb_file)
     os.makedirs("output/", exist_ok=True)
     os.makedirs("output/mutants/", exist_ok=True)
-    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scwrl, mutants, qhull,modeller, cores
+    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scwrl, mutants, qhull,nomod, cores
 
 
 def pdbManager(pdb, files):

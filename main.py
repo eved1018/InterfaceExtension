@@ -7,12 +7,12 @@ from concurrent.futures import ProcessPoolExecutor
 import shutil
 
 
-def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, modeller, cores):
+def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, nomod, cores):
     extended_interface = []
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
-    jobs = [(key, mutAA, pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller) for key in positions for mutAA in mutants if key[:3] != mutAA]    
+    jobs = [(key, mutAA, pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, nomod) for key in positions for mutAA in mutants if key[:3] != mutAA]    
     print(f"{len(jobs)} jobs")
     with ProcessPoolExecutor(max_workers=cores) as exe:
         return_vals = exe.map(parellelRun, jobs)
@@ -28,21 +28,22 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
 
 
 def parellelRun(args):
-    key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller = args
+    key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, nomod = args
     wt_interactions = int(positions[key][1])
     respos = str(positions[key][0])
     mutposition = mutAA + respos
     mutantfile = "output/mutants/" + mutposition + ".pdb"
-    if modeller:
-        mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
-    else: 
+    if nomod:
         mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
+    else: 
+        mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
+
     if scrwl:
         mutant = runScwrl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
     return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
-def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, modeller, mutants):
+def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, nomod, mutants):
     extended_interface = []
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
@@ -56,11 +57,10 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                 respos = str(positions[key][0])
                 mutposition = mutAA + respos
                 mutantfile = "output/mutants/" + mutposition + ".pdb"
-                if modeller:
-                    mutant = mutateModel(pdb, respos, mutAA,
-                                        query_chain, mutantfile, "input/")
-                else: 
+                if nomod:
                     mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA, mutantfile)
+                else: 
+                    mutant = mutateModel(pdb, respos, mutAA,query_chain, mutantfile, "input/")
                 if scrwl:
                     mutant = runScwrl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
@@ -102,9 +102,9 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
 
 
 if __name__ == '__main__':
-    pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,modeller, cores = CLI()
+    pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod, cores = CLI()
     if cores == 0:
-        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,modeller, mutants)
+        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)
     else:
         print(f"using {cores} cores:")
-        extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,modeller,  cores)
+        extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod,  cores)
