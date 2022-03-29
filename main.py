@@ -12,6 +12,7 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
         pdb, query_chain, partner_chain, sr, mi, qhull)
+    print(intercaat_result)
     results = {key: [] for key in positions}
     jobs = [(key, mutAA, pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller) for key in positions for mutAA in mutants if key[:3] != mutAA]    
     print(f"{len(jobs)} jobs")
@@ -27,6 +28,21 @@ def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, q
     print("extended interface positions: ", extended_interface)
     return extended_interface
 
+
+def parellelRun(args):
+    key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller = args
+    wt_interactions = int(positions[key][1])
+    respos = str(positions[key][0])
+    mutposition = mutAA + respos
+    mutantfile = "output/mutants/" + mutposition + ".pdb"
+    if modeller:
+        mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
+    else: 
+        mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
+    if scrwl:
+        mutant = runScrwl4(mutant)
+    mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
+    return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
 def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, modeller, mutants):
     extended_interface = []
@@ -59,22 +75,6 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                  intercaat_result_changed, extended_interface, results, positions)
     print("extended interface positions: ", extended_interface)
     return extended_interface
-
-
-def parellelRun(args):
-    key, mutAA,pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, modeller = args
-    wt_interactions = int(positions[key][1])
-    respos = str(positions[key][0])
-    mutposition = mutAA + respos
-    mutantfile = "output/mutants/" + mutposition + ".pdb"
-    if modeller:
-        mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
-    else: 
-        mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
-    if scrwl:
-        mutant = runScrwl4(mutant)
-    mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
-    return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
 
 def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result, intercaat_result_changed, extended_interface, results, positions):
