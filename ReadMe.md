@@ -53,7 +53,7 @@ python main.py
 * `-mi`: Interaction cutoff for extension (default 1).
 * `-m:` Amino Acids used for extension (default TRP,ARG).
 * `-r:` Output file name. 
-* `-c:` Number of cores to use in parallel (default 0 ie. single threaded)
+* `-c:` Number of cores to use in parallel (default 0 ie. single threaded).
 <br />
 
 Add these flags to use Scrwl4 or qhull.
