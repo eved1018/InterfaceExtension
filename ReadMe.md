@@ -14,7 +14,7 @@ This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to ident
 
 ### Installation and Dependencies:
 * Requires python 3.6 or later. Tested on python 3.9. 
-* Requires Anocanda to install Modeller easily. I recommend MiniConda. https://docs.conda.io/en/latest/miniconda.html
+* Requires Anocanda to install Modeller easily.(https://www.anaconda.com/)
 1. Clone repo:
 ```sh
    git clone https://github.com/eved1018/InterfaceExtention
@@ -59,6 +59,7 @@ python main.py
 Add these flags to use Scrwl4 or qhull.
 * `-s`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
 * `-qh`: Use c++ qhull (default pyhull). 
+* `-nomod`: Dont use modeller and instead just change the names of 
 ------
 
 ### Output:

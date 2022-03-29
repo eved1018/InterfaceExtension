@@ -4,6 +4,7 @@ import argparse
 import sys
 from scripts.pdb_fixinsert import fixInsert
 
+
 def CLI():
     # pdb = "6waq.pdb"
     # partner_chain = "A"
@@ -28,6 +29,8 @@ def CLI():
     parser.add_argument(
         '-qh', '--qhull', help="use c++ qhull", action= 'store_true', default=False)
     parser.add_argument(
+        '-nomod', '--nomodeller', help="use modeller", action= 'store_false', default=True)
+    parser.add_argument(
         '-c', '--cores', help="number of pareller jobs to run at once", default=0)
     args = parser.parse_args()
     pdb = args.pdb
@@ -37,6 +40,7 @@ def CLI():
     result_file = args.result_file
     mi = args.min_ints
     scrwl = args.scrwl
+    modeller = args.nomodeller
     qhull = args.qhull
     cores = int(args.cores)
     mutants = args.mutants
@@ -50,7 +54,7 @@ def CLI():
     else:
         pdb_file = fixInsert(pdb_file)
     os.makedirs("output/mutants/", exist_ok=True)
-    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, cores
+    return pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,modeller, cores
 
 
 def pdbManager(pdb, files):
