@@ -1,6 +1,6 @@
 from scripts.mutate_model import mutateModel
 from scripts.CLI import CLI
-from scripts.Scwrl import runScrwl4
+from scripts.Scwrl import runScwrl4
 from scripts.simple_mutate import simple_mutate
 from scripts.intercaatInterface import intercaatRun, mutantIntercaatRun
 from concurrent.futures import ProcessPoolExecutor
@@ -38,7 +38,7 @@ def parellelRun(args):
     else: 
         mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
     if scrwl:
-        mutant = runScrwl4(mutant)
+        mutant = runScwrl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
     return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
@@ -62,7 +62,7 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                 else: 
                     mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA, mutantfile)
                 if scrwl:
-                    mutant = runScrwl4(mutant)
+                    mutant = runScwrl4(mutant)
                 mutant_interactions = mutantIntercaatRun(
                     mutant, query_chain, partner_chain, mutposition, sr, qhull)
                 results[key] = results[key] + [f"{mutAA} {mutant_interactions}"]
