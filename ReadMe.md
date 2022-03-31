@@ -89,5 +89,6 @@ Please report any questions or complaints to steven.grudman@einsteinmed.org
 
 
 ![output](Media/6waq.gif)
+<br/>
 Extended interface highlighted in yellow.  
 
