@@ -78,23 +78,23 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
     with open(f"output/{result_file}", "a+") as outfile:
         outfile.write("-------------------\n")
         outfile.write(f"Protein: {pdb} qc: {query_chain} ic {partner_chain}")
-        outfile.write("\nW.T. interface:\n")
-        outfile.write("Res #   Interactions\n")
+        outfile.write("\nInterface:\n")
+        outfile.write("Res\t#Interactions\n")
         for i in intercaat_result:
             outfile.write(f"{i}\t{intercaat_result[i][2]}\n")
         outfile.write(
-            f"\nInterface (solvent radius {sr} | minimum interactions {mi}):\n")
-        outfile.write("Res #   Interactions\n")
+            f"\Extended Interface (solvent radius {sr} | minimum interactions {mi}):\n")
+        outfile.write("Res\t#Interactions\n")
         for i in intercaat_result_changed:
             if i in positions:
                 outfile.write(f"*{i}\t{intercaat_result_changed[i][2]}\n")
             else:
                 outfile.write(f" {i}\t{intercaat_result_changed[i][2]}\n")
-        outfile.write("\npotential extened interface positions: ")
+        outfile.write("\nExtened Interface Position(s): ")
         outfile.write(" ".join(extended_interface))
         outfile.write("\nMutation results: (True if made contact after mutation)\n")
         for i in results:
-            j = "\t".join(results[i])
+            j = " ".join(results[i])
             outfile.write(f"{i} {j}\n")
     shutil.make_archive(f"output/mutants_{pdb}" , 'zip', "output/mutants")
     shutil.rmtree("output/mutants")
@@ -102,9 +102,9 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
 
 
 if __name__ == '__main__':
-    pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod, cores = CLI()
-    if cores == 0:
-        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)
-    else:
+    pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod, cores, parallel = CLI()
+    if parallel:
         print(f"using {cores} cores:")
         extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod,  cores)
+    else:
+        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)

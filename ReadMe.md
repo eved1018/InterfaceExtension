@@ -1,6 +1,6 @@
 ### Interface Extension:
 
-![output](Media/ctla4cd80.png)
+![ctla4](Media/ctla4cd80.png)
 ------
 
  
@@ -8,7 +8,7 @@
 
 This program uses Intercaat (https://pubmed.ncbi.nlm.nih.gov/34499117/) to identify pharmacological relevant residues at the periphery of the protein interface. This is accomplished by defining the 'wt interface', expanding that interface by modulating the minimum interaction cutoff and/or the solvent radius, mutating the expanded positions to larger mutants (ARG and TRP by default) and assessing whether the mutant reaches the interface threshold.
 
-![output](Media/alg.png)
+![alg](Media/alg.png)
 ------
 
 
@@ -53,10 +53,11 @@ python main.py
 * `-mi`: Interaction cutoff for extension (default 1).
 * `-m:` Amino Acids used for extension (default TRP,ARG).
 * `-r:` Output file name. 
-* `-c:` Number of cores to use in parallel (default 0 ie. single threaded).
+* `-c:` Number of cores to use in parallel (default 4).
 <br />
 
-Add these flags to use Scrwl4 or qhull.
+Add these flags to use certain features. 
+*  `-p`: Run Interface Extention in parallel.  
 * `-scwrl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
 * `-qh`: Use c++ qhull (default pyhull). 
 * `-nomod`: (FOR TESTING ONLY) Dont use modeller and instead just change the names of the residue in the pdb. 
@@ -71,12 +72,12 @@ Add these flags to use Scrwl4 or qhull.
 * Intercaat may not understand pdbs with insertion codes so pdb-tools fixinsert function is run to reformat the pdb. (https://github.com/haddocking/pdb-tools).
 * for extended mutants argument(-m) please use upper case three letter amino acid name separated by a comma without spaces.
 * if qhull is not downloaded then pyhull will be used (wrapper for qhull). For more info on pyhull see https://github.com/materialsvirtuallab/pyhull. To use qhull downloaded it (http://www.qhull.org/), update the contents of intercaat_config.ini in 'scripts/intercaatmaster' folder  and use the -qh flag in the command line.
-* if Scrwl4 isnt working delete the -p section of the alias. 
+* if Scrwl4 isnt working make sure it is properly alliased in your shell config (.bashrc or .zshrc). 
 
-### Solvent Radius Expansion:
+### Extension Parameters:
 Increasing -sr increases the Rw.
 
-![output](Media/sr.png)
+![sr](Media/sr.png)
 
 
 ------
@@ -88,7 +89,7 @@ Please report any questions or complaints to steven.grudman@einsteinmed.org
 ------
 
 
-![output](Media/6waq.gif)
+![6waq](Media/6waq.gif)
 <br/>
 Extended interface highlighted in yellow.  
 
