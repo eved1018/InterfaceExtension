@@ -78,7 +78,7 @@ Add these flags to use certain features.
 Increasing -sr increases the Rw.
 
 ![sr](Media/sr.png#gh-dark-mode-only)
-![sr](Media/sr2.png#gh-light-mode-only)
+![sr](Media/srlight.png#gh-light-mode-only)
 
 ------
 
