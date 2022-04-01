@@ -77,7 +77,9 @@ Add these flags to use certain features.
 ### Extension Parameters:
 Increasing -sr increases the Rw.
 
-![sr](Media/sr.png)
+![sr](Media/sr.png#gh-dark-mode-only)
+![sr](Media/sr2.png#gh-light-mode-only)
+
 
 
 ------
