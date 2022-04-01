@@ -64,7 +64,6 @@ Add these flags to use certain features.
 ------
 
 ### Output:
-![output](Media/results.png)
 
 ![sr](Media/Picture1.png#gh-dark-mode-only)
 ![sr](Media/Picture2.png#gh-light-mode-only)
