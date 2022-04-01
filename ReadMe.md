@@ -85,11 +85,3 @@ Increasing -sr increases the Rw.
 Written by Evan Edelstein 
 <br />
 Please report any questions or complaints to steven.grudman@einsteinmed.org
-
-------
-
-
-![6waq](Media/6waq.gif)
-<br/>
-Extended interface highlighted in yellow.  
-
