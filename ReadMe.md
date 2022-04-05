@@ -77,10 +77,10 @@ Add these flags to use certain features.
 * if Scrwl4 isnt working make sure it is properly alliased in your shell config (.bashrc or .zshrc). 
 
 ### Extension Parameters:
-Increasing -sr increases the Rw.
 
-![sr](Media/sr.png#gh-dark-mode-only)
-![sr](Media/srlight.png#gh-light-mode-only)
+![sr](Media/params.png)
+
+
 
 ------
 
