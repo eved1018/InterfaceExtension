@@ -32,7 +32,7 @@ def parellelRun(args):
     wt_interactions = int(positions[key][1])
     respos = str(positions[key][0])
     mutposition = mutAA + respos
-    mutantfile = "output/mutants/" + mutposition + ".pdb"
+    mutantfile = f"output/{pdb}/mutants/" + mutposition + ".pdb"
     if nomod:
         mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
     else: 
@@ -56,7 +56,7 @@ def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl,
                 wt_interactions = int(positions[key][1])
                 respos = str(positions[key][0])
                 mutposition = mutAA + respos
-                mutantfile = "output/mutants/" + mutposition + ".pdb"
+                mutantfile = f"output/{pdb}/mutants/" + mutposition + ".pdb"
                 if nomod:
                     mutant = simple_mutate(pdb, query_chain, respos, wt_res,mutAA, mutantfile)
                 else: 
@@ -96,8 +96,8 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
         for i in results:
             j = " ".join(results[i])
             outfile.write(f"{i} {j}\n")
-    shutil.make_archive(f"output/mutants_{pdb}" , 'zip', "output/mutants")
-    shutil.rmtree("output/mutants")
+    shutil.make_archive(f"output/{pdb}/mutants_{pdb}" , 'zip', f"output/{pdb}/mutants")
+    shutil.rmtree(f"output/{pdb}/mutants")
     return
 
 

@@ -11,7 +11,7 @@ def CLI():
     # query_chain = "B"
     files = [i for i in os.listdir("input/") if i.endswith(".pdb")]
     parser = argparse.ArgumentParser()
-    parser.add_argument('-pdb', required=False,
+    parser.add_argument('-pdb',
                         help=f"please choose an input file from {files} or add to input folder", default=None)
     parser.add_argument('-qc', '--query_chain', help="please choose a query chain", default=None)
     parser.add_argument('-ic', '--interacting_chain',
@@ -60,9 +60,11 @@ def CLI():
     if query_chain is None or partner_chain is None:
         query_chain, partner_chain, pdb_file = getChains(pdb_file)
     else:
+        query_chain = query_chain[0]
+        partner_chain = partner_chain[0]
         pdb_file = fixInsert(pdb_file)
     os.makedirs("output/", exist_ok=True)
-    os.makedirs("output/mutants/", exist_ok=True)
+    os.makedirs(f"output/{pdb}/mutants/", exist_ok=True)
     return pdb_file, query_chain, partner_chain, sr, result_file, mi, scwrl, mutants, qhull,nomod, cores, parallel
 
 
@@ -70,7 +72,11 @@ def pdbManager(pdb, files):
     if pdb is None:
         pdb = input("Please input a pdb id (ex. 1i8l): ")
         pdb = pdb.lower()
-    pdb_file = pdb + ".pdb" 
+    if not pdb.endswith(".pdb"):
+        pdb_file = pdb + ".pdb" 
+    else:
+        pdb_file = pdb
+        pdb = pdb.replace(".pdb", "")
     if pdb_file not in files:
         download = input(f"Download {pdb} from the RCSB? [y,n]: ")
         if download == "y":

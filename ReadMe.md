@@ -58,7 +58,7 @@ python main.py
 
 Add these flags to use certain features. 
 *  `-p`: Run Interface Extention in parallel.  
-* `-scwrl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling).
+* `--scwrl`: Use scrwl4 to remodel sidechain (default no sidechain remodeling) (-s also works).
 * `-qh`: Use c++ qhull (default pyhull). 
 * `-nomod`: (FOR TESTING ONLY) Dont use modeller and instead just change the names of the residue in the pdb. 
 ------
@@ -78,8 +78,9 @@ Add these flags to use certain features.
 
 ### Extension Parameters:
 
-![sr](Media/params.png)
 
+![sr](Media/params_dark.png#gh-dark-mode-only)
+![sr](Media/params_light.png#gh-light-mode-only)
 ------
 
 Written by Evan Edelstein 
