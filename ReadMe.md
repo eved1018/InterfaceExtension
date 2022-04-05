@@ -80,8 +80,6 @@ Add these flags to use certain features.
 
 ![sr](Media/params.png)
 
-
-
 ------
 
 Written by Evan Edelstein 
