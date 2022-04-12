@@ -60,8 +60,8 @@ def make_restraints(mdl1, aln):
 #first argument
 # modelname, respos, restyp, chain, = sys.argv[1:]
 def mutateModel(modelname, respos, restyp, chain,filename, folder):
-
-    modelname = folder+modelname
+    cwd = os.getcwd()
+    modelname = cwd + "/"+ folder+modelname
     # log.verbose()
     log.none()
 

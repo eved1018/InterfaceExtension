@@ -1,0 +1,68 @@
+-------------------
+Protein: 1i3z qc: A ic B
+Interface:
+Res	#Interactions
+LYS12	11
+GLU16	20
+LEU20	4
+ARG31	6
+SER33	4
+GLU34	6
+SER35	7
+CYS41	5
+LEU49	11
+VAL50	6
+TYR51	17
+SER52	18
+TYR53	26
+ARG54	10
+ILE65	6
+GLU66	11
+THR67	12
+ASP68	9
+THR71	12
+GLY90	4
+GLN91	5
+GLY92	11
+
+Extended Interface (solvent radius 5.4 | minimum interactions 3):
+Res	#Interactions
+ LYS12	12
+*ARG13	8
+ GLU16	20
+ LEU20	4
+ ARG31	7
+ SER33	4
+ GLU34	6
+ SER35	11
+ CYS41	5
+*LYS47	3
+ LEU49	11
+ VAL50	6
+ TYR51	20
+ SER52	18
+ TYR53	28
+ ARG54	14
+ ILE65	6
+ GLU66	13
+ THR67	12
+ ASP68	9
+*HIS70	10
+ THR71	12
+*PRO72	4
+*TYR86	4
+ GLY90	4
+ GLN91	5
+ GLY92	11
+*LEU93	5
+*VAL94	5
+
+Extended Interface Position(s): ARG13 PRO72 TYR86 LEU93 VAL94
+Mutation results: (True if made contact after mutation)
+ARG13 TRP True
+LYS47 ARG False TRP False
+HIS70 ARG False TRP False
+PRO72 ARG True TRP True
+TYR86 ARG True TRP True
+LEU93 ARG True TRP True
+VAL94 ARG True TRP True

@@ -1,0 +1,64 @@
+-------------------
+Protein: 6waq qc: A ic B
+Interface:
+Res	#Interactions
+TRP53	33
+GLY56	14
+SER57	14
+THR58	5
+TYR59	35
+GLY102	8
+THR103	9
+VAL104	21
+VAL105	13
+SER106	8
+GLU107	11
+TRP108	43
+TYR110	36
+ASP111	6
+
+Extended Interface (solvent radius 2.4 | minimum interactions 1):
+Res	#Interactions
+*GLU31	3
+*GLU46	4
+*PHE47	3
+*SER52	3
+ TRP53	39
+*SER54	4
+*GLY55	1
+ GLY56	15
+ SER57	16
+ THR58	5
+ TYR59	36
+*TYR60	5
+*THR61	1
+*ASP62	12
+*LYS65	5
+*LEU101	6
+ GLY102	9
+ THR103	9
+ VAL104	21
+ VAL105	13
+ SER106	8
+ GLU107	11
+ TRP108	43
+*ASP109	2
+ TYR110	42
+ ASP111	8
+*ASP113	1
+
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Mutation results: (True if made contact after mutation)
+GLU31 ARG False TRP False
+GLU46 ARG True TRP False
+PHE47 ARG True TRP True
+SER52 ARG True TRP True
+SER54 ARG True TRP True
+GLY55 ARG False TRP False
+TYR60 ARG True TRP True
+THR61 ARG False TRP True
+ASP62 ARG True TRP True
+LYS65 ARG True TRP True
+LEU101 ARG True TRP True
+ASP109 ARG False TRP True
+ASP113 ARG False TRP False

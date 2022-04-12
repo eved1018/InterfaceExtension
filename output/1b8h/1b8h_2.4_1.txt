@@ -1,0 +1,68 @@
+-------------------
+Protein: 1b8h qc: B ic D
+Interface:
+Res	#Interactions
+ARG32	18
+ASN35	8
+GLY36	16
+THR37	10
+TYR39	6
+PRO103	6
+ASN104	4
+LYS105	12
+ILE107	25
+GLN108	4
+PHE109	6
+PRO110	5
+TRP199	9
+LYS204	14
+ALA206	6
+VAL217	6
+ALA219	13
+GLU221	6
+ALA222	6
+
+Extended Interface (solvent radius 2.4 | minimum interactions 1):
+Res	#Interactions
+ ARG32	20
+*VAL34	3
+ ASN35	8
+ GLY36	16
+ THR37	10
+*THR38	2
+ TYR39	6
+*PHE102	1
+ PRO103	6
+ ASN104	7
+ LYS105	12
+*PRO106	4
+ ILE107	25
+ GLN108	6
+ PHE109	6
+ PRO110	5
+*LYS154	1
+ TRP199	10
+*ASP203	2
+ LYS204	16
+*VAL205	3
+ ALA206	6
+ VAL217	6
+*ILE218	2
+ ALA219	13
+*MET220	4
+ GLU221	6
+ ALA222	7
+*ASP223	1
+
+Extended Interface Position(s): VAL34 THR38 PRO106 ASP203 VAL205 ILE218 MET220 ASP223
+Mutation results: (True if made contact after mutation)
+VAL34 ARG True TRP True
+THR38 ARG True TRP True
+PHE102 ARG False TRP False
+PRO106 ARG True TRP True
+LYS154 ARG False TRP False
+ASP203 ARG True TRP True
+VAL205 ARG True TRP True
+ILE218 ARG True TRP True
+MET220 ARG True TRP True
+ASP223 ARG False TRP True

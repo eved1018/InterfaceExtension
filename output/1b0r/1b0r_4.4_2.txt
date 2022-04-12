@@ -1,0 +1,76 @@
+-------------------
+Protein: 1b0r qc: A ic C
+Interface:
+Res	#Interactions
+TYR7	22
+GLU63	11
+LYS66	14
+VAL67	4
+HIS70	16
+THR73	10
+VAL76	4
+ASP77	13
+ARG97	7
+TYR99	19
+HIS114	4
+TYR116	13
+TYR123	4
+THR143	5
+TRP147	22
+VAL152	11
+GLN155	6
+LEU156	10
+TYR159	30
+TRP167	4
+TYR171	4
+
+Extended Interface (solvent radius 4.4 | minimum interactions 2):
+Res	#Interactions
+*MET5	3
+ TYR7	22
+*PHE9	3
+*MET45	3
+*TYR59	2
+ GLU63	11
+*ARG65	2
+ LYS66	14
+ VAL67	4
+*ALA69	5
+ HIS70	16
+ THR73	10
+ VAL76	4
+ ASP77	13
+*THR80	4
+*LEU81	3
+*TYR84	3
+ ARG97	7
+ TYR99	19
+ HIS114	5
+ TYR116	13
+ TYR123	4
+ THR143	7
+*LYS146	2
+ TRP147	23
+*ALA150	3
+ VAL152	11
+ GLN155	7
+ LEU156	10
+ TYR159	30
+*THR163	6
+ TRP167	5
+ TYR171	4
+
+Extended Interface Position(s): MET5 PHE9 MET45 TYR59 ALA69 THR80 LYS146 ALA150 THR163
+Mutation results: (True if made contact after mutation)
+MET5 ARG True TRP True
+PHE9 ARG True TRP True
+MET45 ARG True TRP True
+TYR59 ARG False TRP True
+ARG65 TRP False
+ALA69 ARG True TRP True
+THR80 ARG True TRP True
+LEU81 ARG False TRP False
+TYR84 ARG False TRP False
+LYS146 ARG True TRP False
+ALA150 ARG True TRP True
+THR163 ARG True TRP False

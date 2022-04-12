@@ -1,0 +1,60 @@
+-------------------
+Protein: 1a5h qc: A ic C
+Interface:
+Res	#Interactions
+ALA25	6
+SER26	16
+PRO28	4
+TRP29	22
+GLU127	6
+SER129	8
+ARG132	14
+THR133	9
+VAL134	4
+CYS135	10
+GLU150	6
+ARG229	22
+MET230	15
+
+Extended Interface (solvent radius 3.4 | minimum interactions 1):
+Res	#Interactions
+*ASP23	1
+ ALA25	6
+ SER26	20
+*HIS27	1
+ PRO28	4
+ TRP29	22
+*ILE52	1
+*GLU88	1
+ GLU127	7
+ SER129	9
+ ARG132	15
+ THR133	9
+ VAL134	4
+ CYS135	10
+*LEU136	2
+*PRO138	1
+*GLU148	1
+ GLU150	6
+*GLU170	4
+*HIS172	1
+*LEU225	8
+*GLY228	4
+ ARG229	22
+ MET230	15
+*ARG263	1
+
+Extended Interface Position(s): HIS27 ILE52 LEU136 GLU170 HIS172
+Mutation results: (True if made contact after mutation)
+ASP23 ARG False TRP False
+HIS27 ARG False TRP True
+ILE52 ARG False TRP True
+GLU88 ARG False TRP False
+LEU136 ARG True TRP False
+PRO138 ARG False TRP False
+GLU148 ARG False TRP False
+GLU170 ARG False TRP True
+HIS172 ARG False TRP True
+LEU225 ARG False TRP False
+GLY228 ARG False TRP False
+ARG263 TRP False

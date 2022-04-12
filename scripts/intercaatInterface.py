@@ -1,15 +1,18 @@
 from .intercaatmaster.intercaatWrapper import intercaat
 import sys
+import os
+
 
 
 def intercaatRun(in_pdb, query_chain, partner_chain, sr, mi, qhull):
     positions = {}
+    print(os.getcwd())
     intercaat_result = intercaat(
         in_pdb, query_chain, partner_chain, fp="input/", qhull = qhull)
     intercaat_result_changed = intercaat(
         in_pdb, query_chain, partner_chain, sr=sr, mi=mi, fp="input/")
     if not intercaat_result:
-        print("Error: it is likley the two chains selected to not interact")
+        print("Error: it is likley the two chains selected do not interact")
         sys.exit()
 
     for key in intercaat_result_changed:

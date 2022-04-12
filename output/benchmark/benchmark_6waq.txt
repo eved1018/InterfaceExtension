@@ -1,0 +1,18 @@
+Extended Interface (solvent radius 2.4 | minimum interactions 1):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 2.4 | minimum interactions 2):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 ASP62 LYS65 LEU101
+Extended Interface (solvent radius 3.4 | minimum interactions 1):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 3.4 | minimum interactions 2):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 3.4 | minimum interactions 3):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 ASP62 LYS65 LEU101
+Extended Interface (solvent radius 4.4 | minimum interactions 1):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 4.4 | minimum interactions 2):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 THR61 ASP62 LYS65 LEU101 ASP109
+Extended Interface (solvent radius 4.4 | minimum interactions 3):
+Extened Interface Position(s): GLU46 PHE47 SER52 SER54 TYR60 ASP62 LYS65 LEU101

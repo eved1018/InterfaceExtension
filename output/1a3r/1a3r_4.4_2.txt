@@ -1,0 +1,46 @@
+-------------------
+Protein: 1a3r qc: H ic P
+Interface:
+Res	#Interactions
+TYR33	34
+HIS35	13
+ARG50	11
+ASP52	6
+PRO53	5
+ALA54	5
+TYR57	20
+ASP97	5
+TYR99	35
+SER101	16
+TYR102	20
+ASP104	8
+ASP106	7
+
+Extended Interface (solvent radius 4.4 | minimum interactions 2):
+Res	#Interactions
+*LYS30	2
+*ASP31	4
+ TYR33	34
+ HIS35	13
+*TRP47	22
+ ARG50	12
+ ASP52	6
+ PRO53	5
+ ALA54	6
+*ASN55	3
+ TYR57	23
+*LYS59	14
+ ASP97	5
+ TYR99	35
+ SER101	16
+ TYR102	22
+ ASP104	8
+ ASP106	8
+
+Extended Interface Position(s): LYS30 ASP31 TRP47 ASN55 LYS59
+Mutation results: (True if made contact after mutation)
+LYS30 ARG True TRP True
+ASP31 ARG True TRP True
+TRP47 ARG True
+ASN55 ARG True TRP True
+LYS59 ARG True TRP True

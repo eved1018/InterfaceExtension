@@ -1,0 +1,52 @@
+-------------------
+Protein: 1joj qc: B ic Q
+Interface:
+Res	#Interactions
+MET42	14
+GLN43	23
+ASN44	25
+GLY45	6
+LYS46	12
+LYS200	8
+SER201	5
+PRO202	9
+SER204	18
+
+Extended Interface (solvent radius 5.4 | minimum interactions 3):
+Res	#Interactions
+*SER21	6
+*TYR22	5
+*PRO23	5
+*LYS39	5
+*ASN41	13
+ MET42	16
+ GLN43	23
+ ASN44	25
+ GLY45	6
+ LYS46	14
+*VAL47	3
+*PRO68	5
+*ASN69	6
+*ASP71	5
+*ASN162	7
+ LYS200	10
+ SER201	5
+ PRO202	13
+ SER204	18
+*HIS205	20
+*PRO206	3
+
+Extended Interface Position(s): PRO23 LYS39 ASN41 PRO68 HIS205 PRO206
+Mutation results: (True if made contact after mutation)
+SER21 ARG False TRP False
+TYR22 ARG False TRP False
+PRO23 ARG True TRP True
+LYS39 ARG True TRP True
+ASN41 ARG True TRP True
+VAL47 ARG False TRP False
+PRO68 ARG True TRP True
+ASN69 ARG False TRP False
+ASP71 ARG False TRP False
+ASN162 ARG False TRP False
+HIS205 ARG True TRP True
+PRO206 ARG True TRP True

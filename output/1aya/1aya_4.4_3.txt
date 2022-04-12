@@ -1,0 +1,50 @@
+-------------------
+Protein: 1aya qc: A ic P
+Interface:
+Res	#Interactions
+GLY13	7
+GLU17	4
+ARG32	7
+SER34	5
+LYS35	11
+SER36	7
+THR52	5
+HIS53	23
+ILE54	10
+LYS55	15
+LEU65	8
+GLY67	6
+LYS89	14
+GLU90	14
+LYS91	16
+
+Extended Interface (solvent radius 4.4 | minimum interactions 3):
+Res	#Interactions
+ GLY13	7
+*VAL14	5
+ GLU17	6
+ ARG32	7
+ SER34	5
+ LYS35	11
+ SER36	14
+ THR52	5
+ HIS53	23
+ ILE54	10
+ LYS55	19
+ LEU65	9
+*TYR66	11
+ GLY67	7
+*GLY68	5
+*TYR81	3
+ LYS89	14
+ GLU90	15
+ LYS91	22
+*GLY93	3
+
+Extended Interface Position(s): VAL14 TYR66 GLY68 TYR81 GLY93
+Mutation results: (True if made contact after mutation)
+VAL14 ARG True TRP True
+TYR66 ARG False TRP True
+GLY68 ARG True TRP True
+TYR81 ARG False TRP True
+GLY93 ARG True TRP True

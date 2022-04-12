@@ -1,0 +1,44 @@
+-------------------
+Protein: 1ab9 qc: B ic A
+Interface:
+Res	#Interactions
+VAL23	8
+GLY25	6
+SER26	16
+TRP27	15
+PRO28	5
+TRP29	16
+GLN116	12
+SER119	6
+ALA120	7
+VAL121	4
+CYS122	12
+VAL137	4
+
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Res	#Interactions
+*GLU20	3
+ VAL23	8
+*PRO24	3
+ GLY25	6
+ SER26	17
+ TRP27	17
+ PRO28	5
+ TRP29	16
+*PHE114	3
+ GLN116	12
+ SER119	9
+ ALA120	7
+ VAL121	4
+ CYS122	12
+*LEU123	4
+*THR135	3
+ VAL137	4
+
+Extended Interface Position(s): GLU20 PRO24 LEU123
+Mutation results: (True if made contact after mutation)
+GLU20 ARG False TRP True
+PRO24 ARG False TRP True
+PHE114 ARG False TRP False
+LEU123 ARG True TRP True
+THR135 ARG False TRP False

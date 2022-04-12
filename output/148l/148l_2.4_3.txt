@@ -1,0 +1,38 @@
+-------------------
+Protein: 148l qc: E ic S
+Interface:
+Res	#Interactions
+GLN105	5
+MET106	15
+PHE114	33
+ASN116	7
+SER117	4
+SER136	7
+ARG137	18
+TRP138	6
+GLN141	7
+
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Res	#Interactions
+*TYR24	7
+*LYS35	6
+ GLN105	5
+ MET106	15
+*GLY110	3
+*GLY113	5
+ PHE114	33
+ ASN116	7
+ SER117	4
+*LYS135	4
+ SER136	8
+ ARG137	21
+ TRP138	6
+ GLN141	7
+
+Extended Interface Position(s): TYR24 GLY110
+Mutation results: (True if made contact after mutation)
+TYR24 ARG True TRP True
+LYS35 ARG False TRP False
+GLY110 ARG True TRP True
+GLY113 ARG False TRP False
+LYS135 ARG False TRP False

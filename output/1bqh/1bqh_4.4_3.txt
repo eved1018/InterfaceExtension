@@ -1,0 +1,68 @@
+-------------------
+Protein: 1bqh qc: A ic C
+Interface:
+Res	#Interactions
+TYR7	27
+VAL9	9
+GLU24	8
+TYR59	6
+GLU63	8
+LYS66	17
+ASN70	11
+SER73	10
+PHE74	11
+ASP77	13
+THR80	5
+TYR84	7
+VAL97	5
+SER99	5
+GLN114	7
+TYR116	16
+TYR123	7
+THR143	8
+LYS146	6
+TRP147	24
+GLU152	11
+ARG155	24
+LEU156	9
+TYR159	28
+TRP167	22
+TYR171	5
+
+Extended Interface (solvent radius 4.4 | minimum interactions 3):
+Res	#Interactions
+ TYR7	28
+ VAL9	9
+ GLU24	8
+ TYR59	6
+ GLU63	8
+ LYS66	19
+ ASN70	11
+ SER73	12
+ PHE74	11
+ ASP77	13
+ THR80	5
+*LEU81	3
+ TYR84	7
+*ILE95	3
+ VAL97	5
+ SER99	5
+ GLN114	7
+ TYR116	16
+ TYR123	7
+ THR143	8
+ LYS146	9
+ TRP147	24
+ GLU152	11
+ ARG155	24
+ LEU156	9
+ TYR159	31
+*THR163	6
+ TRP167	22
+ TYR171	5
+
+Extended Interface Position(s): LEU81 ILE95 THR163
+Mutation results: (True if made contact after mutation)
+LEU81 ARG True TRP True
+ILE95 ARG True TRP True
+THR163 ARG True TRP True

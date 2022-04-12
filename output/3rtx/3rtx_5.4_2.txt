@@ -1,0 +1,48 @@
+-------------------
+Protein: 3rtx qc: A ic C
+Interface:
+Res	#Interactions
+ARG330	8
+LYS331	5
+PHE367	6
+GLN370	13
+PRO371	7
+VAL372	9
+ASP374	9
+CYS375	14
+ILE379	7
+CYS383	14
+ARG386	12
+GLU387	7
+
+Extended Interface (solvent radius 5.4 | minimum interactions 2):
+Res	#Interactions
+*PHE329	2
+ ARG330	8
+ LYS331	7
+ PHE367	7
+*ALA369	3
+ GLN370	20
+ PRO371	7
+ VAL372	9
+ ASP374	11
+ CYS375	15
+*ASP376	5
+*ASN378	4
+ ILE379	16
+*GLN382	11
+ CYS383	14
+ ARG386	12
+ GLU387	8
+*GLY446	2
+*LYS447	4
+
+Extended Interface Position(s): GLN382
+Mutation results: (True if made contact after mutation)
+PHE329 ARG False TRP False
+ALA369 ARG False TRP False
+ASP376 ARG False TRP False
+ASN378 ARG False TRP False
+GLN382 ARG True TRP True
+GLY446 ARG False TRP False
+LYS447 ARG False TRP False

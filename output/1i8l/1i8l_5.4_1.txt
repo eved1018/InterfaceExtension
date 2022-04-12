@@ -1,0 +1,120 @@
+-------------------
+Protein: 1i8l qc: B ic D
+Interface:
+Res	#Interactions
+ARG29	17
+TYR31	28
+GLN33	8
+LYS36	18
+MET38	15
+MET43	7
+GLU81	4
+VAL83	12
+LEU85	9
+ALA91	5
+PHE92	14
+LYS93	4
+ARG94	18
+LEU97	6
+
+Extended Interface (solvent radius 5.4 | minimum interactions 1):
+Res	#Interactions
+*VAL1	1
+ ARG29	17
+ TYR31	28
+ GLN33	8
+*GLU35	5
+ LYS36	23
+ MET38	15
+*THR41	1
+ MET43	8
+*SER44	1
+*ASP46	1
+*ASN48	1
+*TRP50	14
+ GLU81	5
+ VAL83	12
+ LEU85	9
+*TYR87	6
+*LYS89	4
+*ASP90	21
+ ALA91	7
+ PHE92	15
+ LYS93	6
+ ARG94	22
+ LEU97	6
+*GLU99	2
+
+Extended Interface Position(s): THR41 SER44 ASN48 ASP90
+Mutation results: (True if made contact after mutation)
+VAL1 ARG False TRP False
+GLU35 ARG False TRP False
+THR41 ARG True TRP True
+SER44 ARG False TRP True
+ASP46 ARG False TRP False
+ASN48 ARG True TRP False
+TRP50 ARG False
+TYR87 ARG False TRP False
+LYS89 ARG False TRP False
+ASP90 ARG True TRP True
+GLU99 ARG False TRP False
+-------------------
+Protein: 1i8l qc: B ic D
+Interface:
+Res	#Interactions
+ARG29	17
+TYR31	28
+GLN33	8
+LYS36	18
+MET38	15
+MET43	7
+GLU81	4
+VAL83	12
+LEU85	9
+ALA91	5
+PHE92	14
+LYS93	4
+ARG94	18
+LEU97	6
+
+Extended Interface (solvent radius 5.4 | minimum interactions 1):
+Res	#Interactions
+*VAL1	1
+ ARG29	17
+ TYR31	28
+ GLN33	8
+*GLU35	5
+ LYS36	23
+ MET38	15
+*THR41	1
+ MET43	8
+*SER44	1
+*ASP46	1
+*ASN48	1
+*TRP50	14
+ GLU81	5
+ VAL83	12
+ LEU85	9
+*TYR87	6
+*LYS89	4
+*ASP90	21
+ ALA91	7
+ PHE92	15
+ LYS93	6
+ ARG94	22
+ LEU97	6
+*GLU99	2
+
+Extended Interface Position(s): THR41 SER44 ASN48 ASP90
+Mutation results: (True if made contact after mutation)
+VAL1 ARG False TRP False
+GLU35 ARG False TRP False
+THR41 ARG True TRP True
+SER44 ARG False TRP True
+ASP46 ARG False TRP False
+ASN48 ARG True TRP False
+TRP50 ARG False
+TYR87 ARG False TRP False
+LYS89 ARG False TRP False
+ASP90 ARG True TRP True
+GLU99 ARG False TRP False

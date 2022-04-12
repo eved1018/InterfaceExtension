@@ -1,0 +1,44 @@
+-------------------
+Protein: 1i8l qc: B ic D
+Interface:
+Res	#Interactions
+ARG29	17
+TYR31	28
+GLN33	8
+LYS36	18
+MET38	15
+MET43	7
+GLU81	4
+VAL83	12
+LEU85	9
+ALA91	5
+PHE92	14
+LYS93	4
+ARG94	18
+LEU97	6
+
+Extended Interface (solvent radius 4.4 | minimum interactions 3):
+Res	#Interactions
+ ARG29	17
+ TYR31	28
+ GLN33	8
+ LYS36	23
+ MET38	15
+ MET43	8
+*TRP50	11
+ GLU81	5
+ VAL83	12
+ LEU85	9
+*TYR87	5
+*ASP90	21
+ ALA91	7
+ PHE92	15
+ LYS93	5
+ ARG94	22
+ LEU97	6
+
+Extended Interface Position(s): ASP90
+Mutation results: (True if made contact after mutation)
+TRP50 ARG False
+TYR87 ARG False TRP False
+ASP90 ARG True TRP True

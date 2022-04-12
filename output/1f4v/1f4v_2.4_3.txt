@@ -1,0 +1,40 @@
+-------------------
+Protein: 1f4v qc: B ic E
+Interface:
+Res	#Interactions
+ALA90	9
+LYS91	6
+LYS92	21
+ILE95	22
+ALA99	6
+GLY105	8
+TYR106	17
+VAL108	6
+LYS119	16
+LYS122	7
+LYS126	6
+
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Res	#Interactions
+ ALA90	9
+ LYS91	9
+ LYS92	24
+*GLU93	4
+ ILE95	22
+*ILE96	4
+*ALA98	3
+ ALA99	6
+ GLY105	8
+ TYR106	17
+ VAL108	8
+*THR115	4
+ LYS119	16
+ LYS122	7
+ LYS126	7
+
+Extended Interface Position(s): GLU93 ILE96 ALA98 THR115
+Mutation results: (True if made contact after mutation)
+GLU93 ARG True TRP True
+ILE96 ARG True TRP True
+ALA98 ARG True TRP True
+THR115 ARG True TRP True

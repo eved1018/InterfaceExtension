@@ -1,0 +1,18 @@
+Extended Interface (solvent radius 2.4 | minimum interactions 1):
+Extended Interface Position(s): THR41 ASP90
+Extended Interface (solvent radius 2.4 | minimum interactions 2):
+Extended Interface Position(s): ASP90
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Extended Interface Position(s): ASP90
+Extended Interface (solvent radius 3.4 | minimum interactions 1):
+Extended Interface Position(s): THR41 SER44 ASP90
+Extended Interface (solvent radius 3.4 | minimum interactions 2):
+Extended Interface Position(s): ASP90
+Extended Interface (solvent radius 3.4 | minimum interactions 3):
+Extended Interface Position(s): ASP90
+Extended Interface (solvent radius 4.4 | minimum interactions 1):
+Extended Interface Position(s): THR41 SER44 ASN48 ASP90
+Extended Interface (solvent radius 4.4 | minimum interactions 2):
+Extended Interface Position(s): ASP90
+Extended Interface (solvent radius 4.4 | minimum interactions 3):
+Extended Interface Position(s): ASP90

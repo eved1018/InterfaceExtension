@@ -1,0 +1,40 @@
+-------------------
+Protein: 2l7u qc: A ic B
+Interface:
+Res	#Interactions
+ALA3	4
+LYS32	10
+LEU33	4
+ASN34	18
+ILE76	18
+ARG78	30
+CYS79	4
+GLN80	5
+LYS90	13
+ASN92	8
+ARG94	7
+ARG96	4
+
+Extended Interface (solvent radius 2.4 | minimum interactions 3):
+Res	#Interactions
+ ALA3	4
+ LYS32	10
+ LEU33	4
+ ASN34	20
+*TRP41	3
+ ILE76	18
+*PHE77	3
+ ARG78	31
+ CYS79	4
+ GLN80	5
+ LYS90	13
+*SER91	3
+ ASN92	8
+ ARG94	12
+ ARG96	8
+
+Extended Interface Position(s): PHE77
+Mutation results: (True if made contact after mutation)
+TRP41 ARG False
+PHE77 ARG True TRP True
+SER91 ARG False TRP False

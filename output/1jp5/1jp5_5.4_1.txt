@@ -1,0 +1,68 @@
+-------------------
+Protein: 1jp5 qc: A ic C
+Interface:
+Res	#Interactions
+HIS31	13
+TYR37	8
+GLY96	4
+PHE99	15
+PRO101	11
+ASP158	12
+TYR159	20
+SER160	14
+HIS162	6
+TYR174	6
+TRP177	24
+ASN179	6
+GLU181	7
+ASP226	4
+HIS228	24
+ASP229	4
+ILE233	7
+
+Extended Interface (solvent radius 5.4 | minimum interactions 1):
+Res	#Interactions
+ HIS31	14
+*ASN32	4
+*ASN33	5
+ TYR37	8
+*PHE94	1
+ GLY96	4
+*SER97	3
+*HIS98	6
+ PHE99	16
+ PRO101	11
+*THR157	1
+ ASP158	13
+ TYR159	20
+ SER160	14
+ HIS162	6
+ TYR174	6
+ TRP177	26
+ ASN179	8
+*THR180	3
+ GLU181	12
+*THR182	1
+*GLU184	2
+*THR186	1
+*LYS192	1
+ ASP226	4
+ HIS228	24
+ ASP229	6
+ ILE233	7
+*PHE234	3
+
+Extended Interface Position(s): ASN32 ASN33 PHE94 SER97 HIS98 THR157 THR180 PHE234
+Mutation results: (True if made contact after mutation)
+ASN32 ARG True TRP False
+ASN33 ARG True TRP True
+PHE94 ARG False TRP True
+SER97 ARG True TRP True
+HIS98 ARG True TRP True
+THR157 ARG True TRP True
+THR180 ARG True TRP True
+THR182 ARG False TRP False
+GLU184 ARG False TRP False
+THR186 ARG False TRP False
+LYS192 ARG False TRP False
+PHE234 ARG True TRP True

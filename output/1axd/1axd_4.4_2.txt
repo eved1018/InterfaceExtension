@@ -1,0 +1,48 @@
+-------------------
+Protein: 1axd qc: A ic C
+Interface:
+Res	#Interactions
+SER11	8
+TRP12	15
+ASN13	12
+PHE35	19
+HIS40	6
+LYS41	5
+GLN53	16
+VAL54	5
+PRO55	4
+GLU66	12
+SER67	6
+
+Extended Interface (solvent radius 4.4 | minimum interactions 2):
+Res	#Interactions
+*MET10	2
+ SER11	8
+ TRP12	15
+ ASN13	12
+ PHE35	21
+ HIS40	6
+ LYS41	5
+*PHE51	5
+*GLY52	2
+ GLN53	16
+ VAL54	5
+ PRO55	4
+ GLU66	12
+ SER67	6
+*ARG68	2
+*ASN111	5
+*PHE115	6
+*ILE119	3
+*LEU123	3
+
+Extended Interface Position(s): PHE51 GLY52
+Mutation results: (True if made contact after mutation)
+MET10 ARG False TRP False
+PHE51 ARG True TRP False
+GLY52 ARG True TRP True
+ARG68 TRP False
+ASN111 ARG False TRP False
+PHE115 ARG False TRP False
+ILE119 ARG False TRP False
+LEU123 ARG False TRP False

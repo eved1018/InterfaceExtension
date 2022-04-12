@@ -1,0 +1,66 @@
+-------------------
+Protein: 3mhp qc: A ic C
+Interface:
+Res	#Interactions
+LEU38	4
+THR40	15
+ILE42	14
+THR43	6
+GLY44	4
+HIS53	13
+ILE96	4
+ASP98	12
+PHE99	14
+GLY100	12
+TRP176	23
+PHE180	29
+GLU181	11
+LYS182	13
+GLU184	6
+SER202	6
+LEU204	6
+TYR206	7
+LYS207	4
+GLU208	14
+GLU209	11
+LYS212	6
+LYS216	7
+
+Extended Interface (solvent radius 3.4 | minimum interactions 3):
+Res	#Interactions
+ LEU38	5
+ THR40	15
+*LYS41	3
+ ILE42	14
+ THR43	6
+ GLY44	4
+*ASP45	4
+ HIS53	13
+ ILE96	4
+ ASP98	12
+ PHE99	23
+ GLY100	13
+*ASP101	9
+ TRP176	23
+ PHE180	32
+ GLU181	11
+ LYS182	21
+*HIS183	4
+ GLU184	10
+*SER201	5
+ SER202	11
+ LEU204	6
+ TYR206	7
+ LYS207	7
+ GLU208	18
+ GLU209	11
+ LYS212	8
+ LYS216	9
+
+Extended Interface Position(s): LYS41 ASP45 ASP101 HIS183 SER201
+Mutation results: (True if made contact after mutation)
+LYS41 ARG True TRP True
+ASP45 ARG True TRP True
+ASP101 ARG True TRP True
+HIS183 ARG False TRP True
+SER201 ARG True TRP True

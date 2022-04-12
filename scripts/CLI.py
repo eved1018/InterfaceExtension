@@ -70,7 +70,7 @@ def pdbManager(pdb, files):
     if pdb is None:
         pdb = input("Please input a pdb id (ex. 1i8l): ")
         pdb = pdb.lower()
-    pdb_file = pdb + ".pdb" 
+    pdb_file = pdb + ".pdb"
     if pdb_file not in files:
         download = input(f"Download {pdb} from the RCSB? [y,n]: ")
         if download == "y":
@@ -79,7 +79,6 @@ def pdbManager(pdb, files):
             print(f"{pdb} not downloaded please add {pdb} to input folder")
             sys.exit()
     return pdb, pdb_file
-        
 
 def download_pdb(pdbcode, datadir, downloadurl="https://files.rcsb.org/download/"):
     """
