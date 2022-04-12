@@ -108,3 +108,4 @@ if __name__ == '__main__':
         extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod,  cores)
     else:
         extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)
+
