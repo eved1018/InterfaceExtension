@@ -164,6 +164,9 @@ def findMinParams():
     plt.ylabel("SR")
     plt.xlabel("MI")
     plt.colorbar(h[3])
+    plt.xticks(np.arange(min(mi), max(mi)+1, 1.0))
+    plt.yticks(np.arange(min(sr), max(sr)+1, 1.0))
+    plt.tight_layout()
     plt.show()
     return
 findMinParams()
