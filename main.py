@@ -7,10 +7,10 @@ from concurrent.futures import ProcessPoolExecutor
 import shutil
 
 
-def main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, nomod, cores):
+def main(pdb,pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull, nomod, cores):
     extended_interface = []
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
-        pdb, query_chain, partner_chain, sr, mi, qhull)
+        pdb_file, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
     jobs = [(key, mutAA, pdb, positions, scrwl, qhull, sr, query_chain, partner_chain, nomod) for key in positions for mutAA in mutants if key[:3] != mutAA]    
     print(f"{len(jobs)} jobs")
@@ -37,17 +37,16 @@ def parellelRun(args):
         mutant = simple_mutate(pdb, query_chain, respos, key[:3], mutAA, mutantfile)
     else: 
         mutant = mutateModel(pdb, respos, mutAA, query_chain, mutantfile, "input/")
-
     if scrwl:
         mutant = runScwrl4(mutant)
     mutant_interactions = mutantIntercaatRun(mutant, query_chain, partner_chain, mutposition, sr, qhull)
     return key, mutant_interactions, [f"{mutAA} {mutant_interactions}"]
 
-def singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, nomod, mutants):
+def singlethreadRun(pdb,pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull, nomod, mutants):
     extended_interface = []
     print(pdb, query_chain, partner_chain)
     intercaat_result, intercaat_result_changed, positions = intercaatRun(
-        pdb, query_chain, partner_chain, sr, mi, qhull)
+        pdb_file, query_chain, partner_chain, sr, mi, qhull)
     results = {key: [] for key in positions}
     for mutAA in mutants:
         for key in positions:
@@ -102,10 +101,10 @@ def outputWriter(result_file, pdb, query_chain, partner_chain, intercaat_result,
 
 
 if __name__ == '__main__':
-    pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod, cores, parallel = CLI()
+    pdb, pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod, cores, parallel = CLI()
     if parallel:
         print(f"using {cores} cores:")
-        extended_interface = main(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod,  cores)
+        extended_interface = main(pdb,pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, mutants, qhull,nomod,  cores)
     else:
-        extended_interface = singlethreadRun(pdb, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)
+        extended_interface = singlethreadRun(pdb,pdb_file, query_chain, partner_chain, sr, result_file, mi, scrwl, qhull,nomod, mutants)
 
