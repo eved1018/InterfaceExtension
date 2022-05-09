@@ -1,4 +1,4 @@
-### Interface Extension:
+### Pericaat:
 
 ![ctla4](Media/ctla4cd80.png)
 ------
@@ -6,7 +6,7 @@
  
 ### Overview:
 
-The Interface Extension program was developed to identify pharmacologically relevant residues at the periphery of a protein’s interface from a known three-dimensional structure. First, the set of normal interface and extended interface residues are defined. The normal interface residues are then excluded from the extended interface. Lastly, the potential residues are filtered by their ability to reach the normal interface threshold upon in-silica mutation. The extended interface positions present themselves as important positions in a variety of applications, as mutations at these positions have potential to affect the protein binding without damaging the interface.
+The Periphery Interface Contact definition with Adaptable Atom Types (pericaat) was developed to identify pharmacologically relevant residues at the periphery of a protein’s interface from a known three-dimensional structure. First, the set of normal interface and extended interface residues are defined. The normal interface residues are then excluded from the extended interface. Lastly, the potential residues are filtered by their ability to reach the normal interface threshold upon in-silica mutation. The extended interface positions present themselves as important positions in a variety of applications, as mutations at these positions have potential to affect the protein binding without damaging the interface.
 
 ![alg](Media/alg.png)
 ------
