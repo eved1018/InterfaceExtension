@@ -15,9 +15,9 @@ The Interface Extension program was developed to identify pharmacologically rele
 ### Installation and Dependencies:
 * Requires python 3.6 or later. Tested on python 3.9. 
 * Requires Anocanda to install Modeller easily. (https://www.anaconda.com/)
-1. Clone repo:
+1. Install:
 ```sh
-   git clone https://github.com/eved1018/InterfaceExtention
+   pip install pericaat
 ```
 2. Download Modeller: https://salilab.org/modeller/download_installation.html
     * for Conda enviroment:
@@ -25,31 +25,22 @@ The Interface Extension program was developed to identify pharmacologically rele
         conda config --add channels salilab
         conda install modeller
 ```
-3. Download python dependencies (pyhull, scipy, numpy):
-```sh
-    pip install -r requirements.txt 
-```
-4. Download SCRWL4 (optional): http://dunbrack.fccc.edu/lab/scwrl
-5. Download qhull (optional): http://www.qhull.org/
+3. Download SCRWL4 (optional): http://dunbrack.fccc.edu/lab/scwrl
+4. Download qhull (optional): http://www.qhull.org/
 
 ------
 
 ### Usage:
-1. Move to repo:
 ```sh
-cd InterfaceExtension/
-```
-2. Run code:
-```sh
-python main.py 
+ pericaat -pdb {PDB ID} -qc {Query chain} -c {Interacting chain}
 ```
 ------
 
 ### Command Line Arguments:
 * `-pdb`: RCSB PDB id, if not provided you will be prompted to select one. If it is is in the input/ folder it will be used. Otherwise it will be downloaded from the RCSB.
 * `-qc`: Query chain to find extended positions on.
-* `-ic`: partner chain.
-* `-sr`: solvent radius for extension (default 4.4).
+* `-ic`: Interacting chain.
+* `-sr`: Solvent radius for extension (default 4.4).
 * `-mi`: Interaction cutoff for extension (default 1).
 * `-m:` Amino Acids used for extension (default TRP,ARG).
 * `-r:` Output file name. 
